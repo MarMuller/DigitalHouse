@@ -48,6 +48,8 @@ titularFeo.onclick = function() {
 var lechuzaImg = document.querySelector('img');
 console.log(lechuzaImg);
 
+lechuzaImg.style.width = '300px';
+
 lechuzaImg.onclick = function() {
   if (lechuzaImg.style.width == '300px') {
     lechuzaImg.style.width = '500px';
