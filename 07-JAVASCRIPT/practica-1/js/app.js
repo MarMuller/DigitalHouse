@@ -38,10 +38,25 @@ botonDePrueba.onclick = function() {
 
 
 var titularFeo = document.getElementById('titular');
+var queVuelva = document.getElementById('quevuelva');
+
 console.log(titularFeo);
+console.log(queVuelva);
+
+queVuelva.style.display = "none";
 
 titularFeo.onclick = function() {
-  titularFeo.style.display = "none";
+  if (titularFeo.style.display != "none") {
+    titularFeo.style.display = "none";
+    queVuelva.style.display = "inline";
+  }
+}
+
+queVuelva.onclick = function() {
+  if (queVuelva.style.display != "none") {
+    queVuelva.style.display = "none";
+    titularFeo.style.display = "inline";
+  }
 }
 
 
@@ -49,11 +64,14 @@ var lechuzaImg = document.querySelector('img');
 console.log(lechuzaImg);
 
 lechuzaImg.style.width = '300px';
+lechuzaImg.style.opacity = "0.5";
 
 lechuzaImg.onclick = function() {
   if (lechuzaImg.style.width == '300px') {
     lechuzaImg.style.width = '500px';
+    lechuzaImg.style.opacity = "1.0";
   } else {
     lechuzaImg.style.width = '300px';
+    lechuzaImg.style.opacity = "0.5";
   }
 }
