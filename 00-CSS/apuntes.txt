@@ -1,0 +1,85 @@
+El segundo menu:
+Los dos nav van flotar a la derecha.
+El contenedor va a tener un width de 60%.
+Los items del menu cambia a display in-block.
+
+----
+
+SELECTORES DE HIJOS:
+header ul:first-child {}
+header ul:last-child {}
+
+Si usas una selector especificoen,
+para etiquetase aplique se debe usar de
+vuelta en los @media.
+
+Para que los OL estén uno abajo de otro,
+hay que ponerle width 100%.
+
+-----
+
+Primero cargar todo los que esta por defecto
+y después los @media.
+
+-----
+
+display: block; (uno al lado del otro)
+
+_________________________________________
+
+CLASE DE HOY:
+
+Para que los de los extremos estén bien a la
+derecha o izquierda, y lo de adentro bien
+centrado.
+
+A) Todos los con margen a la derecha,
+excepto al último (li:last-child)
+
+ó
+
+B) FLEXBOX (cajitas flexibles)
+
+display: flex;
+
+
+Se basa en la flotación.
+(Los contenedores) les va a decir a nuestros
+hijos que sean flexibles.
+
+flex-wrap: nowrap; (auto) --> siguen el flujo sin alterarse.
+flex-wrap: wrap; --> él que sobre se va abajo.
+flex-wrap: wrap-reverse; --> cambia el eje de cruce Y del cruce.
+flex-direction: row; --> hacia a la derecha.
+flex-direction: row-reverse; --> hacia a la izq.
+flex-direction: column; --> hacia abajo.
+flex-direction: column-reverse; --> hacia arriba.
+
+justify-content: center;  --xxx--
+justify-content: space-between;   x-x-x
+justify-content: space-around;  -x-x-x-
+justify-content: space-end;  ---xxx
+
+los display comunes: inline, inline-block, block, flex.
+
+justify-content: space-around;  -x-x-x-
+
+align-items: strech;
+align-items: flex-start;
+aling-items: center;
+align-items: base-line;
+
+ORDEN: todos están en cero (el orden original)
+
+align-self:
+
+
+
+
+
+
+
+
+-----
+
+www.canius.com (para que nav son compatibles)

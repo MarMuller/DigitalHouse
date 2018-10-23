@@ -1,0 +1,12 @@
+Clase Usuario
+___________________
+-id
+-nombre
+-email
+-usuario
+-password
+___________________
+
++setNombre(string)
++getNombre():string
++__construct(nombre,email,usuario,password)

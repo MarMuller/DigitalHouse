@@ -1,0 +1,88 @@
+$_COOKIE['cosa'] (svaraible universal)
+
+COOKIES = Una cookie es información que envía el servidor web al cliente
+(navegador), con información que necesita quedar guardada en la pc de cada usuario.
+El browser almacena esta información en archivos de texto plano, de no más de 4kb.
+Cada navegador tiene sus cookies.
+
+Para que perdure, hay que setearle un tiempo de expiración:
+setcookie(key,value,expira);
+                //segundos//
+
+                time()+3600*24*30 //para que dure un mes
+                time()+3600*24*30*12 //para que dure un año
+
+                //time = seg actual
+
+<?php
+  $cookie_name = "nombre";
+  $cookie_value = "Juan";
+  setcookie($cookie_name, $cookie_value);
+?>
+
+El cookie NO se crea en la linea:
+setcookie($cookie_name, $cookie_value);
+SINO que crea al terminar el php (?>) .
+
+Una cookie se crea en el ordenador del usuario a través del navegador.
+
+El var_dump no muestra su contenido, mostrara sólo un array vacio.
+
+Para verlos, el cliente de manda sus cookies al servidor.
+Con <a href=""> a otro vercookie.php con un var_dump[$_COOKIE], ahí si se va a ver.
+
+Lectura de una cookie:
+
+<?php
+  echo '¡Hola ' . $_COOKIE["nombre"] . '!';
+?>
+Resultado --> ¡Hola Juan!
+
+Tiempo de expiración:
+Es la fecha en la que expira la cookie.
+Se expresa en segundos y en formato UNIX.
+
+<?php
+  $expira = time()+3600; // 1 hora
+  setcookie("usuario", "pepe", $expira);
+?>
+
+Borrado de una cookie:
+
+<?php
+  $cookie_nombre = "nombre";
+  setcookie($cookie_nombre, null, time() - 1);
+?>
+
+Las cookies se guarda en "Application" (Chrome)
+
+///
+
+$_SESSION
+
+SESIÓN que es?
+Cada sesión es única. La sesión va a presistir.
+
+PHP nos proporciona una variable global llamada $_SESSION. Si bien se guarda del
+lado del servidor, sus valores son únicos para cada usuario interactuando con el sitio.
+Los valores guardados en $_SESSION persisten a través de distintos pedidos,
+inclusive en distintos sitios.
+
+Estoy guardando variables de sesión, no estoy logueandome.
+
+Inicializar la sesión:
+
+Para utilizar variables de sesión antes que nada, iniciamos una nueva sesión.
+
+<?php
+  session_start();
+?>
+
+Escribir datos:
+Luego de iniciar session se puede escribir o modificar variables session utilizando:
+
+<?php
+  $_SESSION["color"] = "verde";
+  $_SESSION["animal"] = "gato";
+  echo "Variables de sesión guardadas.";
+?>

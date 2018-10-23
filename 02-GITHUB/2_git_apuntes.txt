@@ -1,0 +1,73 @@
+digitalhouse@DH-VM:~/Escritorio/holaSoyCarpeta$ cd 
+
+digitalhouse@DH-VM:~$ cd Escritorio/
+
+digitalhouse@DH-VM:~/Escritorio$ mkdir claseTerminal
+
+digitalhouse@DH-VM:~/Escritorio$ cd claseTerminal/
+
+digitalhouse@DH-VM:~/Escritorio/claseTerminal$ git init
+
+Initialized empty Git repository in /home/digitalhouse/Escritorio/claseTerminal/.git/
+
+digitalhouse@DH-VM:~/Escritorio/claseTerminal$ git config user.name 'Marina'
+
+digitalhouse@DH-VM:~/Escritorio/claseTerminal$ git config user.email 'muller.marina@hotmail.com' 
+
+digitalhouse@DH-VM:~/Escritorio/claseTerminal$ git remote add origin https://github.com/MarMuller/claseTerminal.git
+
+
+// Hasta acá lo hago soló por esta vez, lo que siguie se hace n veces: // (PULL >> ADD >> COMMIT >> PUSH)
+
+
+digitalhouse@DH-VM:~/Escritorio/claseTerminal$ atom .
+
+digitalhouse@DH-VM:~/Escritorio/claseTerminal$ git add .
+
+digitalhouse@DH-VM:~/Escritorio/claseTerminal$ git status
+
+En la rama master
+
+Commit inicial
+
+Cambios para hacer commit:
+  (use «git rm --cached <archivo>...» para sacar del stage)
+
+	nuevo archivo: index.html
+
+digitalhouse@DH-VM:~/Escritorio/claseTerminal$ git commit -m 'nuevoindex sitio'
+
+[master (root-commit) 7178d11] nuevoindex sitio
+ 1 file changed, 10 insertions(+)
+ create mode 100644 index.html
+
+digitalhouse@DH-VM:~/Escritorio/claseTerminal$ git push origin master
+
+Username for 'https://github.com': MarMuller
+Password for 'https://MarMuller@github.com': 
+Counting objects: 3, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 321 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To https://github.com/MarMuller/claseTerminal.git
+ * [new branch]      master -> master
+
+digitalhouse@DH-VM:~/Escritorio/claseTerminal$ git pull http://github.com/MarMuller/claseTerminal.git
+
+De http://github.com/MarMuller/claseTerminal
+ * branch            HEAD       -> FETCH_HEAD
+Already up-to-date.
+
+digitalhouse@DH-VM:~/Escritorio/claseTerminal$ git clone https://github.com/MarMuller/claseTerminal.git
+
+Clonar en «claseTerminal»...
+remote: Counting objects: 3, done.
+remote: Compressing objects: 100% (2/2), done.
+remote: Total 3 (delta 0), reused 3 (delta 0), pack-reused 0
+Unpacking objects: 100% (3/3), done.
+Comprobando la conectividad… hecho.
+
+digitalhouse@DH-VM:~/Escritorio/claseTerminal$ 
+
+

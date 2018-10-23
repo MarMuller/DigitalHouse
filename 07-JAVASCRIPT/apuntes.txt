@@ -1,0 +1,89 @@
+JavaScript 6 y 7: basado en objetos
+
+par javascrip un espacio vacio es positivo pero para php es falso.
+
+"debugear"
+
+console.log('...'); // equivalente al var_dump():
+
+.metodos con punto al principio. Ej: .log
+
+console es el objeto
+
+EN LA CONSOLA:
+
+undefined ---> porque espera una respuesta
+
+Se puede escribir de 3 formas igua la la css ( en linea, archivo aparte o en etiqueta script dentro del html)
+
+para linker un archivo aparte:
+<script src="js/nombrearchivo.js" ></script>
+
+
+OBJETOS LITERALES:
+
+var student = {
+  name: "Juana";
+  lastName: "Perez";
+  fullName: function () {
+    return student.name+" "+student.lastName;
+  }
+}
+
+console.log(student.fullNmae());  //"Juana Perez"
+
+for (var key in student) {
+  CONSOLE.LOG(student[key]);
+}
+
+// "Juana"
+// "Perez"
+// "f()" ¿?
+
+D.O.M. --> Document Object Model
+
+Principales dos objetos de Javascript:
+
+WINDOW y DOCUMENT
+
+window.location.href //devuleve la url de la pagina.
+
+window.location.href = "www.google.com" //devuleve la url nueva y redirige la pagina a la nueva url.
+
+
+(*) LOS SCRIPT JUST AL FINAL DEL BODY
+
+window.onload //Al terminar de cargar la ventana,para q no se ejecute antes
+
+Es buena costumbre hacer esto
+
+window.onload = function () {
+
+  //todo el script va acá adentro
+
+}
+
+SELECTORS:
+
+document.querySelector(); //parecido al fetch, agarra solo el primero.
+document.querySelectorAll(); //parecido al fetchAll, agarra todos.
+document.querySelectorId();
+
+Si le ponemos parámetros:
+
+document.querySelectorAll(h2); //se devuelve un array de todos los h2 del documento.
+document.querySelectorAll(h2)[1]; //se devuelve el array de la posición 1.
+
+Con clases:
+
+document.querySelectorAll('.especial'); //se devuelve elementos con la clase .especial
+
+PROPIEDAD STYLE:
+
+document.titulo.style.color = "red";
+
+ONCLICK:
+
+document.titulo.onClick = function() {
+  console.log('me hicieronclick');
+};

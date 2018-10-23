@@ -1,0 +1,37 @@
+<?php
+Nombre: ffdsfs
+Edad: 78
+Teléfono: 432423423432432
+Email: fsdfdsfd@fdfsd.com
+Sitio: http://www.asdsa.com
+Password: 1234
+Foto: uploads/ffdsfs.jpg
+Genero: femenino
+Estado civil: soltero
+Hobbies: mate
+Comentario: hhjhjkjhk
+-----------------
+Nombre: Marina Muller
+Edad: 25
+Teléfono: 1234-5678
+Email: fsdfdsfd@fdfsd.com
+Sitio: http://www.asdsa.com
+Password: 
+Foto: n/a
+Genero: femenino
+Estado civil: soltero
+Hobbies: mate
+Comentario: hhjhjkjhk
+-----------------
+Nombre: Sasadsaww
+Edad: 34
+Teléfono: 4234324324
+Email: dsdas3@dasa.com
+Sitio: http://www.gfhfgh.com
+Password: 1234
+Foto: uploads/Sasadsaww.jpg
+Genero: femenino
+Estado civil: casado
+Hobbies: tennis / mate
+Comentario: dsdsdsadsa
+-----------------

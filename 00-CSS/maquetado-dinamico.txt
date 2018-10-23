@@ -1,0 +1,30 @@
+MOBILE FIRST
+
+==<meta name="viewport">==
+da instrucciones al browsers instrucciones de como
+se debe dimencionar y escalar la pagina web al cargarse.
+
+<meta name="viewpor
+contenet="width (...)
+
+unidades relativas --> %
+
+---> max-width
+
+regla simple de 3:
+contenedor padre con 1200px en max.width
+ vw/vh (viewport measures) ---> se usa poco para celulares
+
+ media queries
+ @media (min-width: 460px) <---query {
+  /*reglas*/
+ }
+
+ mobile first ---> min-width
+ mobile last ---> max-width
+
+ para desktop --> 1024px
+
+ 3 columnas de %33.33 lasa q queden todas iguales
+
+para tablet ---> 720px

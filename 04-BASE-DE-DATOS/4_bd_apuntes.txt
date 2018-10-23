@@ -1,0 +1,70 @@
+Libreria de PDO que (ahora) pertenece a PHP:
+Es una clase que instanciamos para generar una conexión.
+Es uan libraria q ya esta creada.
+
+#db = new PDO(host(servidor)=,dbname(nombre de base de datos)=,port=3306);
+
+Capturar excepciones:
+
+try {
+  $db = new PDO($host;$db_user,$db_pass,$opt);
+} catch (PDOException $Exception) {
+  echo $Exception->getMessage();
+}
+
+(*) tomar solo el primer error.
+
+Metodo de funcion query:
+
+$query = $db_>query('SELECT*from movies');
+
+(*) ejecutamos la misma función en MySQL.
+
+$results = $query->fetchAll(PDO::FETCH_ASSOC);
+
+fetch(); // el primero q consiga
+fetchAll(); // todos
+rowCount(); // te dice la cantidad de peliculas q hay
+
+-----
+
+$query = $db->prepare('SELECT*from movies');
+$query->execute();
+$results = $query->fetchLAll(PDO::FETCH_ASSOC);
+
+prepare->execute();
+es lo mismo que query?
+
+Por ahora si.
+
+sus ventajas:
+1) Evita inyección Sql. // a un campo sencillo puedo mandarle una sql, con prepare lo evitamos.
+2) Que tengas que hacer varias veces el msimo Sql.
+
+$peli->query(' id=20');
+$peli->fetch( );
+$peli->query(' id=20');
+$peli->prepare( );
+
+
+---------------
+
+
+->query('SELECT * FROM movies');
+
+ó
+
+->query('SELECT user_id, user_name FROM movies');
+
+---------------
+
+
+PREPARE:
+$asd = 'INSERT bla bla bla';
+$ins = $conex->prepare($asd);
+$asd->execute();
+
+----
+
+bindValue() reemplaza el ? de PREPARE(). No es pisable.
+bindParam() es pisable con otro $_POST() posterior.

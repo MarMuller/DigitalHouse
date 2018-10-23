@@ -1,0 +1,159 @@
+PASOS:
+
+1) formulario de producto
+2) clases necesarias y bd
+3) Listado de productos
+4) eliminar producto
+5) editar producto
+
+EJEMPLO "UNA REMERA" :
+
+tiene como atributos: talle, color y sexo.
+
+BASE DE DATOS:
+
+VARCHAR :
+
+CHAR :
+
+----
+
+el conex combiene ponerlo en un php aparte para incluirlo (mejor 'requiere_once()') en los demás.
+
+----
+
+1) new producto
+2) prepare
+3) bindValue
+4) execute
+5) fetch
+
+----
+
+if ($_POST){
+  var_dump($_POST)
+
+  try {
+
+    $query...(lo de abajo)
+
+  } catch (PDOException $ex) {   //en caso de errores
+
+    // echo 'Error al insertar'.$ex->getMessage();
+     echo 'Error';
+
+  }
+
+
+}
+
+----
+
+$query = $conex->prepare['INSERT INTO remeras( talle, color, sexo ) VALUES (:talle, :color, :sexo)'];
+
+(insertamos la info en la tabla remeras)
+
+----
+
+prepare: evitar una inyección de sql
+
+----
+
+bindValue ( :nombreqlepuse , valor)
+
+si el valorviene por post, sería así:
+
+$query->bindValue ( :nombreqlepuse , $_POST['talle']);
+$query->bindValue ( :nombreqlepuse , $_POST['color']);
+$query->bindValue ( :nombreqlepuse , $_POST['sexo']);
+
+----
+
+$query->execute();
+
+----
+
+header('location:listado.php'); //redirige a otra pagina
+
+-----
+
+
+PEDIR DATOS A LA BASE DE DATOS:
+
+(query > fetchAll - no necesita fetchAll)
+
+con ya incluido el conex.php
+
+$traerRemeras = $conex->query('SELECT * FROM remeras'); //enlace a la table, general la coneccion - esta es la pregunta ¿Quien sos?
+
+$todasLasRemeras = $traerRemeras->fetchAll(PDO::FETCH_ASSOC)  //para q cree un array asociativo - esta es la respuesta 'Pablo'
+
+-----
+
+volviento al html visible:
+
+generamos un foreach en php de $todasLasRemeras as $remera
+
+para llamar a cada atributo en un echo -->  $remeras['color'].$remeras['talle'].$remeras['sexo']
+
+-----
+
+PARA BORRAR ITEMS:
+
+hacer boton (img co nenlace o un simple anclaje)
+
+que va (href) a ... eliminar.php
+
+query string ... eliminar.php?id=<?php echo $remeras['id']]?>
+
+-----
+
+En eliminar.php:
+
+que recibe el  dato del id de la remera seleccionada...
+
+require_once(conex.php);
+
+if ($_GET) {
+
+  $query = $conex->prepare('DELETE FROM remeras WHERE id = :producto_id');
+  $query->bindValue(':producto_id', $_GET['id']);
+  $query->execute();
+  hearder("location:listado.php");
+
+}
+
+----
+
+EDITAR items:
+
+primero creamos un enlace para crear un nuevo producto que va al formulario para editar.
+
+En editar.php:
+
+el form igual al de nuevo item
+
+pero con alguna diferencias...
+
+$mostrar = $conex->prepare('SELECT * FROM remeras WHERE id = :producto_id');
+$mostrar->bindValue(':producto_id', $_GET['id']);
+$mostrar->execute();
+
+//fetch me trae el de arriba, fetchAll todos. (fetch hace q la base de datos nos pase los datos)
+
+$product = $mostrar->fetch(PDO::FETCH_ASSOC);
+print_r($producto);
+
+
+En la parte del radio en cada uno insertamos un php, para verificar que opcion habia sido previamente selecionada:
+
+hacemos una condicional que verifique si $producto['sexo'] == 'm'
+
+----
+
+Con el combo box:
+
+es igual que el radio.
+pero aprovechamos el foreach para verificar uno por uno si esta seleccionado o no.
+
+en try {} cambiar el prepare(INSERT) por prepare(update) y agregar un WHERE id = :id ( hacer un blindValue)

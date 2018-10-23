@@ -1,0 +1,41 @@
+Detro de carpeta Clases voy a tener:
+Posteos.php / Usuario.php
+
+En Usuario.php :
+
+___________________________________________________
+
+https://arielhf.wordpress.com/2012/09/19/metodos-getter-y-setter-en-php/
+___________________________________________________
+
+PARA VALIDAR SI ES LA CLASE MADRE:
+
+public function setMadre($madre) {
+  if ($madre instanceOf Persona) {
+    $this->madre = $madre;
+  } else {
+    echo 'No es una madre.';
+  }
+}
+
+ó
+
+public function setPadre(Persona $padre) {
+  $this->padre = $padre;
+}
+
+___________________________________________________
+
+protected (en vez de private)---> permite que los objetos hijos accedan a los atributos privados de su padre.
+
+_______
+
+Control Shift 7  ---> para comentar código
+
+_____
+
+class Video extends Posteo {
+  private $duracion;
+}
+
+//extends hereda todo de Posteo.

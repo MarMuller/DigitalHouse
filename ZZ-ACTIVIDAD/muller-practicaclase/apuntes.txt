@@ -1,0 +1,42 @@
+
+
+Maquetado estático: HTML + CSS
+
+HTML Semántico: se lo puedo informar a google desde HTML.
+
+////
+
+Etiquetas Semánticas:
+
+hearder --> Cabecera del contenido o de documento.
+nav ---> barra de nav
+footer --> pie de contenido o de documento.
+
+SEMANTICAS
+section --> seccion de contenido monotemático
+article --> porcion de informacion en una section
+
+no SEMANTICAS
+divs --> division de ocntenido
+span --> tag multifuncion
+pre --> texto preformateado
+
+body > header/body > main (va lo principal) > section > article
+
+////
+
+etiquetas de bloque vs etiquetas de linea:
+
+inline: no recibe propiedades del modelo de caja. Nada a mi izq ni a mi derecha.
+
+block: define un elemento con comportamiento de bloque, recibe fácilmente propiedades del modelo de caja.
+
+
+CSS- Modelo de caja:
+
+overflow: visible;
+overflow: hidden;
+overflow: scroll;
+overflow: auto;
+
+Dev Tools:

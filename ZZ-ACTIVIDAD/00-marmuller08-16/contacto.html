@@ -1,0 +1,73 @@
+<!doctype html>
+
+  <head>
+    <meta charset="utf-8">
+    <title>Clase 3</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+  </head>
+
+  <body class="mosaico">
+
+    <ol id="indice">
+      <li id="logo" class="entry" type="none"><a href="index.html">Logo</a></li>
+      <li class="entry" type="none"><a href="index.html">Inicio</a></li>
+      <li class="entry" type="none"><a href="progtv.html">Programas de TV</a></li>
+      <li class="entry" type="none"><a href="peliculas.html">Películas</a></li>
+      <li class="entry" type="none"><a href="novedades.html">Novedades</a></li>
+      <li class="entry" type="none"><a href="favoritos.html">Mis favoritos</a></li>
+      <li class="entry" type="none"><a href="galeria.html">Galeria</a></li>
+      <li class="entry openentry" type="none"><a href="contacto.html">Contacto</a></li>
+    </ol>
+
+    <br><br>
+    <h1 class="centrado">Recomendanos tu película favorita</h1>
+    <br><br>
+
+    <form id="contactform" action="php/datos.php" method="post">
+
+      <label>Completar los siguientes datos:</label>
+      <br><br>
+
+      <input class="inputtext" type="text" name="nombreusuario" placeholder="Ingrese su nombre y apellido." required><span> *</span>
+      <br><br>
+
+      <input class="inputtext" type="email" name="emailusuario" placeholder="Ingrese su email." required><span> *</span>
+      <br><br><br>
+
+      <label>¿Cuál es tu género favorito?
+      <br><br>
+      <select class="custom-select" name="genero">
+        <option><div  class="custom-select">Selecionar género</div></option>
+        <option value="drama"><div  class="custom-option">Drama</div></option>
+        <option value="terror"><div  class="custom-option">Terror</div></option>
+        <option value="comedia"><div  class="custom-option">Comedia</div></option>
+        <option value="accion"><div  class="custom-option">Acción</div></option>
+      </select>
+      </label>
+      <br><br><br>
+
+      <label>¿Con quién te gustaría verla?
+      <br><br>
+      <input type="checkbox" name="compania[]" value="familia">Con familia</input>
+      <br>
+      <input type="checkbox" name="compania[]" value="pareja">En pareja</input>
+      <br>
+      <input type="checkbox" name="compania[]" value="solo">Solo</input>
+      </label>
+      <br><br><br>
+
+      <label for="comm">¿Comentarios?</label><span> *</span>
+      <br><br>
+      <textarea id="comm" class="inputtext comments" name="comentario" placeholder="Escribe aquí." required></textarea>
+      <br><br><br>
+
+      <button class="btnsubmit" type="submit"> Enviar </button>
+      <br>
+
+
+    </form>
+
+  </body>
+
+</html>

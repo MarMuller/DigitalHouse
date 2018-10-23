@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed');
+
+*{
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  color: #ccc;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  background-image: url(../images/background.jpg);
+  background-size: 200px auto;
+  background-attachment: fixed;
+  background-repeat: repeat;
+  background-color: white;
+}
+
+h1 {
+  color: #ccc;
+  font-size: 14px;
+  padding-bottom: 5px;
+  font-weight: normal;
+}
+
+#banner {
+  margin-bottom: 100px;
+  width: 100%;
+  height: 800px;
+  position: absolute;
+  top: 0px;
+  z-index: -10;
+  overflow: hidden;
+}
+
+.bktransp {
+  width: 100%;
+  background-color: #000;
+}
+
+#banner .bktransp img {
+  opacity: 0.5;
+  height: auto;
+}
+
+#header {
+  margin-bottom: 30px;
+}
+
+#fondo-nav {
+  margin-top: 40px;
+  background-color: #943838;
+  width: 100%;
+}
+
+#contenedor {
+  background-color: #943838;
+  width: 850px;
+  height: 20px;
+  margin: 0 auto;
+  padding: 15px 0 15px 0;
+}
+
+.enbloque {
+  float: left;
+}
+
+#der {
+  float: right;
+}
+
+#logo {
+  margin-top: -30px;
+  width: 100px;
+  height: 75px;
+  background-color: #943838;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50px);
+}
+
+li {
+  list-style: none;
+  display: inline-flex;
+}
+
+#izq li {
+  margin-right: 20px;
+}
+
+#der li {
+  margin-left: 20px;
+}
+
+#publicaciones {
+  width: 850px;
+  margin: 0 auto;
+  clear: both;
+}
+
+#peli-preview {
+  width: 48%;
+  background-image: url(../images/op-bk75.png);
+  margin: 380px 0 100px 0;
+  padding:10px;
+}
+
+#peli-preview h1 {
+  color: #0066cc;
+  font-size: 18px;
+}
+
+#peli-preview p {
+  color: #ccc;
+  /*text-align: justify;*/
+  font-size: 14px;
+}
+
+#peli-preview .peli-caract {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+#peli-preview .peli-caract span {
+  font-weight: bold;
+}
+
+.boton-ver {
+  text-align: center;
+  margin-top: 10px;
+  padding: 5px;
+  background-color: #0066cc;
+}
+
+.espacio {
+  height: 20px;
+}
+
+.categoria {
+  width: 100%;
+  height: 180px;
+  overflow: visible;
+  background-color: black;
+  margin-bottom: 15px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+}
+
+.movie {
+  width: 32.746%;
+  height: 157px;
+  background-image: url(../posters/transformers.jpg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: 100% auto;
+  background-color: gray;
+  overflow: visible;
+  margin-right: 5px;
+  float:left;
+  opacity: 0.7;
+  transition: opacity .6s;
+  transition: width .2s;
+}
+
+.movie:hover {
+  opacity: 1.0;
+}
+
+.etiqueta {
+  width: 60px;
+  float: right;
+  transform: translateX(-10px);
+}
+
+.tresD {
+  width: 60px;
+  transform: translate(-10px, -5px);
+}
+
+.movie-title h2 {
+  font-size: 14px;
+  text-align: center;
+  width: 100%;
+  margin-top: 110px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-image: url(../images/op-bk.png);
+}
+
+.movie-descrip {
+  text-align: center;
+  height: 10px;
+  width: 100%;
+  padding: 5px 0 8px 0;
+  font-size: 12px;
+}
+
+.azul {
+  background-color: #0066cc;
+}
+
+.verde {
+  background-color: #339933;
+}
+
+.rojo {
+  background-color: #cc0000;
+}
+
+@media (max-width: 1024px) {
+  #peli-preview {
+    width: 48%;
+    background-image: url(../images/op-bk75.png);
+    margin: 205px 0 50px 0;
+    padding:10px;
+  }
+}
+
+@media (max-width: 720px) {
+  #peli-preview {
+    width: 98%;
+    background-image: url(../images/op-bk75.png);
+    margin: 150px 0 0 0;
+    padding:10px;
+  }
+  #contenedor {
+    width: 90%;
+  }
+  #publicaciones {
+    width: 90%;
+  }
+  .movie {
+    width: 32.61%;
+  }
+}
+
+@media (max-width: 425px) {
+  #banner {
+	  height: 500px;
+    background-color: red;
+  }
+  #banner .bktransp img {
+    width: 810px;
+    height: 500px;
+    opacity: 0.5;
+  }
+  #peli-preview {
+    width: 96%;
+  }
+  #contenedor {
+    width: 95%;
+  }
+  #publicaciones {
+    width: 95%;
+    overflow: visible;
+  }
+  .movie {
+    width: 99%;
+    margin-bottom: 8px;
+  }
+  .categoria {
+    overflow: auto;
+    height: auto;
+    padding-bottom: 0;
+  }
+}
+
+@media (max-width: 425px) {
+  #peli-preview {
+    width: 94.8%;
+  }
+  .movie {
+    width: 98.5%;
+  }
+}

@@ -1,0 +1,49 @@
+Comandos básicos:
+
+ls --> lista archivos de donde estamos parados (usualmente desde el usuario que estemos usando).
+dir --> en windows, muestras archivos dentro de la carpeta que estemos parados.
+cd .. --> nos permite retroceder a una carpeta previa.
+
+Ej: cd Escritorio/ (Ir a Escritorio)
+Ej: cd .. Escritorio/ (Volver a Escritorio)
+
+tab (tecla) --> para auto completar con el nombre de la carpeta mas probable/común.
+
+mkdir --> Crea un directorio (carpeta nueva) --> sin espacios
+
+Ej: snake_case
+Ej: UpperCamelCase
+Ej: camelCase
+
+touch --> Crea archivos (Primero se entra en carpeta con cd y luego se crea)
+
+Ej: archivo.jpg
+Ej: miArchivo.png
+Ej: MiArchivo.txt
+
+mv miArchivo.txt leeme.txt --> cambia el nombre del archivo / mismo comando para mover.
+
+cp leeme.txt ../ --> Copia archivo en la carpeta anterior.
+copy leeme.txt .. --> (para windows)
+
+echo 'Hola, soy un texto' > nuevoArchivo.txt --> Escribe dentro del archivo nuevo o viejo.
+
+rm claseterminal/leeme.txt --> eliminar un archivo
+rm -r claseTerminal/ --> Primero borrar los archivos y luego a la carpeta.
+del (para window)
+
+clear ó cls(windows) --> Limpia el terminal.
+
+Para abrir una applicación --> atom .
+
+todos los archivos que empiezan con punto (.) son archivos ocultos.
+
+-------------------------
+
+1) Instalar GitHub y crear archivo oculto .git en tu carpeta. git init
+2) Quien está trabajando --> git config user.name 'Marina'
+3) Dsp cual va a ser el correo --> git config user.email 'muller.marina@hotmail.com'
+4) git remote origin http://(...).git
+5) Abrir Atom --> atom .
+
+add archivo.ext o . (todos los archivos)

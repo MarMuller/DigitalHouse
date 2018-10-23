@@ -1,0 +1,86 @@
+The object operator, ->, is used in object scope to access methods and
+properties of an object. It’s meaning is to say that what is on the right of
+the operator is a member of the object instantiated into the variable on
+the left side of the operator. Instantiated is the key term here.
+
+// Create a new instance of MyObject into $obj
+$obj = new MyObject();
+
+// Set a property in the $obj object called thisProperty
+$obj->thisProperty = 'Fred';
+
+// Call a method of the $obj object named getProperty
+$obj->getProperty();
+
+-----------------------------------------------
+
+private $titulo;
+private $rating;
+private $date_release;
+private $genre;
+
+El constructor iba a recibir los 3 parámetros y los asigna a sus valores:
+
+public function __construct ( $titulo, $rating, $fecha) {
+  $this->setTitle($titulo);
+  $this->setRating($rating);
+  $this->setReleaseDate($fecha);
+}
+
+Método getTitile:
+
+public function getTitle() {
+  return $this->title;
+}
+
+Método setTitle:
+
+public function setTitle($titulo) {
+  //antes agrega validaciones
+  $this->title = $titulo;
+}
+
+Método getRating:
+
+public function setTitle($cosa) {
+  return $this->rating;
+}
+
+Método setRating:
+
+public function setTitle($cosa) {
+  //antes agrega validaciones
+  $this->rating = $cosa;
+}
+
+Método getReleaseDate:
+
+public function setTitle($fecha) {
+  return $this->release_date;
+}
+
+Método setReleaseDate:
+
+public function setReleaseDate($fecha) {
+  //antes agrega validaciones
+  $this->release_date = $fecha;
+}
+
+Método getGenre:
+
+public function setGenre($genero) {
+  return $this->genre;
+}
+
+Método setGenre:
+
+public function setGenre($genero) {
+  //antes agrega validaciones
+  $this->genre = $genero;
+}
+
+-------------------------------------------
+
+4 pilaresde program en obj:
+
+(audio)

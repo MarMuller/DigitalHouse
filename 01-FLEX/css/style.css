@@ -1,0 +1,89 @@
+* {
+  font-family: 'Raleway', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #9900cc;
+}
+
+ul {
+  list-style-type:none;
+}
+
+body {
+  background-color: #f5f5f0;
+}
+
+.container {
+  width: 92%;
+  margin: 0 auto;
+  transform: translate(-8px);
+}
+
+.card {
+  margin-bottom: 30px;
+  background-color: #fff;
+  padding: 25px;
+}
+
+.card-image img {
+  background-color: blue;
+  width: 100%;
+  border-radius: 50%;
+}
+
+ul.social-media  {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0 10px 0;
+}
+
+.card-data h2 {
+  margin-bottom: 10px;
+}
+
+.card-data p {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.card-data a {
+  color: #fff;
+  margin-bottom: 10px;
+  background-color: #9900cc;
+  padding: 5px 10px 5px 10px;
+}
+
+@media (min-width: 700px){
+  .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transform: translate(-0.5%);
+    margin-top: 30px;
+  }
+  .card {
+    width: 45.6%;
+    margin: 0 30px 30px 0;
+  }
+}
+
+@media (min-width: 1400px){
+  .container {
+    margin-top: 40px;
+    transform: translate(-1.5%);
+  }
+  .card {
+    width: 47%;
+    display: flex;
+    justify-content: flex-start;
+  }
+  .card-image {
+    width: 500px;
+    padding-right: 25px;
+  }
+}

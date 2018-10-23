@@ -1,0 +1,232 @@
+body {
+  background-color: #f2f2f2;
+  color: #777;
+  font-size: 14px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.mosaico {
+  background-image: url(../images/full-bloom.png);
+  background-attachment: fixed;
+}
+
+/* Nav */
+
+#indice {
+  text-align: left;
+  padding-left: 2%;
+}
+
+#logo {
+  background-color: white;
+  width: 100px;
+  margin-right: 15px;
+}
+
+.entry {
+  display: inline-block;
+  padding: 10px;
+  text-align: center;
+}
+
+.entry a {
+  color: #0d001a;
+  font-size: 16px;
+  text-decoration:  none;
+  font-weight: bold;
+  opacity: 0.7;
+  transition: 500ms;
+}
+
+.entry a:hover {
+  opacity: 0.5;
+}
+
+.openentry a {
+  opacity: 1.0;
+  border-bottom: 2px solid #0d001a;
+}
+
+/* Fin Nav */
+
+h1 {
+  text-align: left;
+  padding-left: 2%;
+}
+
+.centrado {
+  text-align: center;
+  padding-left: 0%;
+}
+
+p {
+  text-align: justify;
+  font-size: 14px;
+  line-height: 23px;
+}
+
+#pstyle {
+  padding-left: 2%;
+  color: blue;
+}
+
+/* LogIn */
+
+#login {
+  background-color: red;
+  margin: 0 auto;
+}
+
+#usuarios {
+  /*padding: 0 15% 0 15%;*/
+  /*width: 70%;*/
+  position:absolute;
+  margin: 0 auto;
+}
+
+#usuario-grande {
+  justify-content: center;
+  text-align: center;
+  margin: 20px 10px 0 10px;
+  float: left;
+}
+
+.icon-usuario-grande {
+  background-color: blue;
+  border-radius: 300px;
+  width: 300px;
+  height: 300px;
+}
+
+.icon-agregar-usuario {
+  background-color: green;
+  border-radius: 300px;
+  width: 300px;
+  height: 300px;
+}
+
+.descrip-usuario-grande {
+  font-size: 20px;
+  padding: 50px 0 0 0;
+
+}
+
+/* LogIn */
+
+ul {
+  line-height: 22px;
+}
+
+#accion {
+  color: red;
+  font-family: fantasy,monospace,'coca cola';
+  padding-bottom: 25px;
+}
+
+#comedia {
+  color: green;
+  font-weight: bold;
+  padding-bottom: 25px;
+}
+
+#drama {
+  color: #f44295;
+  font-style: italic;
+  padding-bottom: 25px;
+}
+
+.principal {
+  background-color: rgba(20, 189, 59, 1);
+  color: white;
+
+}
+
+h2 {
+  text-decoration: overline;
+}
+
+h3 {
+  text-decoration: line-through;
+}
+
+.parrafos {
+  color: purple;
+  line-height: 26px;
+  font-size: 20px;
+}
+
+.letraAzul {
+  color: blue;
+}
+
+/* ContactForm */
+
+span {
+  color: red;
+}
+
+#contactform {
+  width: 250px;
+  /*border: 1px solid white;*/
+  background-color: #eaeaea;
+  padding: 50px;
+  margin: 0 auto;
+}
+
+.inputtext {
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  height: 25px;
+  width: 92%;
+  padding-left: 3%;
+}
+
+.inputtext:focus{
+  outline: none;
+  color: #751aff;
+  border: 1px solid #751aff;
+}
+
+.comments {
+  width: 95%;
+  height: 100px;
+  padding: 6px;
+  resize: none;
+  font-size: 14px;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+.custom-select {
+  color: #777;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  height: 25px;
+  width: 100%;
+  padding-left: 3%;
+}
+
+.custom-select:focus {
+  outline: none;
+  border: 1px solid #751aff;
+}
+
+.btnsubmit {
+  margin-left: 70px;
+  background-color: #751aff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 500ms;
+}
+
+.btnsubmit:hover {
+  background-color: #8c1aff;
+  cursor: pointer;
+}
+
+/* FIN ContactForm */

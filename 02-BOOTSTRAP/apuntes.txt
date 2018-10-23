@@ -1,0 +1,33 @@
+@import "master.css";
+
+CLASE BOOTSTRAP :
+
+> Descargar (para desarrolo local)
+> CDN (Online)
+> SASS Customize (Pre-programación de CSS)
+
+Diferencia entre containers:
+
+> Containers:
+> Container-fluid:
+
+Por defecto Bootstrap tiene 12 columnas.
+
+Como usar Bootstrap:
+
+1) descargar BOOTSTRAP.
+2) Poner la carpeta dentro de la carpeta CSS.
+
+3)
+<div class="container"> --> con espacios o "container-fluid", sin espacios.
+  <div class="row">
+    <div class="col-4">
+    </div>
+  </div>
+</div>
+
+"col-8 offset-2" --> para centrarlo mover.
+"row" --> Filas
+
+"col-12 col-md-8"
+"col-12 col-lg-8"

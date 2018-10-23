@@ -1,0 +1,119 @@
+Se de be realizar una funcion getPirulin() para poder acceder al atributo privado Pirulin.
+
+$cursoFS -> getProfAdj() -> getNombre();
+
+ó
+
+$profe = $cursoFS->getProfAdj();
+$profe -> getNombre();
+
+
+----
+
+
+$pais = new pais ('Argentina');
+//Clase País crea un pais de nombre 'Argentina'
+
+$provincias = $pais->getProvincias();
+//Este país recién creado tiene un atributo provincias quea la vez es un objeto al cual accedo con un get.
+
+$bsas = $provincias[2];
+//Existe un array de diferentes provincias, del cual accedo al que esta en el puesto 2.
+
+$barrios = $bsas->getBarrios();
+//Esta provincia recién creada tiene un atributo barrios al cual accedo con un get.
+
+$flores = $barrios[7];
+//Existe un array de diferentes barrios, del cual accedo al que esta en el puesto 7.
+
+
+-----
+
+UML Fechas:
+
+<>----> (rombo sin pintar)
+
+<>----> (romba pintado)
+
+-----
+
+¿Cuántas clases para proceso del LogIn?
+
+1) Autenticación (Verificar usuario y contraseña)
+2) Usuario (Ser un un usuario)
+3) BaseDeDatos (Su responsabilidad es conectarse la base de datos)
+4) Validacion
+
+Autenticación va a pedirle a BaseDeDatos que busque si existe este usuario y contraseña.
+
+Autenticación tiene LoginIn, Registro, recuperarPass, cerrarSesion, eliminarSesion.
+
+BasDeDatos tiene Usuarios y Contraseñas.
+
+Usuario tiene crearUsuario, editarUsuario, eliminarUsuario.
+
+Validacion tiene un validarLoginIn, validarRegistro(), etc...
+
+-----
+
+Para un Proyecto creamos carpetas:
+
+Proyecto (carpeta)
+|__> index.php
+|__> autoload.php
+|__> Models (carpeta)
+        |__> usuario.php
+|__> Admin (carpeta)
+        |__> usuario.php
+
+
+Cuando hay dos instancias iguales, usamos NAMESPACE.
+
+NAMESPACE = la capacidad de apodar (o abreviar) Nombre_Extra_Largos
+diseñada para aliviar el primer problema, mejorando la legibilidad del código.
+Solo se utiliza dentro de clases, no puede usarse en donde haya html.
+Debe estar en la primera linea del código.
+
+<?php
+
+namespace Models;
+
+class Usuario {
+  asdasd
+}
+
+y para llamarlo:
+
+$juan = new Models\Usuario();  //Con barra invertida.
+
+'\' indica una carpeta atras, estas carpetas no son 'reales',
+no debe necesaria mente respetar las carpetas reales de tu pagina.
+Indicamos una ruta paralela ficticia, ej: Proyecto\Blog\Models.
+
+ó
+
+use Proyecto\Blog\Models\Usuario as Visitante;
+use Proyecto\Blog\Admin\Usuario;
+
+$juan = newVisitante();
+
+
+-------------
+
+TRAIT = es un grupo de métodos que queremos incluir dentro de una clase. (*)
+
+trait Sharable {
+  public function share() {
+    return 'share this item';
+  }
+}
+
+class Post {
+  use Sharable;
+}
+
+class Comment {
+  use Sharable;
+}
+
+(*) ¿Cuándo usarlo? Para asignar a solo alguno de los hijos del padre y no a todos.

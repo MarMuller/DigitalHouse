@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+}
+body{
+  background-color: #0d0d0d;
+}
+
+ul{
+  list-style: none;
+  display: flex;
+}
+
+li{
+  margin: 0 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #ccc;
+}
+
+h1, h2{
+  margin: 10px 0;
+}
+
+#navegador {
+  text-align: center;
+  float: right;
+}
+
+#logo{
+  width: 250px;
+}
+
+/*--- FILTRO GENERO ---*/
+
+.center-inlineblock {
+  text-align: center;
+}
+
+.center-inlineblock ul {
+  display: inline-block;
+}
+
+.center-inlineblock li {
+display:inline;
+}
+
+/*--- BUSCADOR ---*/
+
+#buscador {
+  margin-top: 10px;
+}
+
+.centrar{
+  text-align: center;
+}
+
+#redes img{
+  clear: both;
+  width: 20px;
+}
+
+#piePagina {
+  margin-top:50px;
+}
+
+/*--- CONTENEDOR PRINCIPAL ---*/
+
+.contenedor-principal {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.contenedor-pelis article img.poster{
+  height: 150px;
+  border-radius: 10px;
+}
+
+.contenedor-pelis{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.contenedor-pelis .items{
+  width: 32%;
+  margin: 10px 0;
+  border: 0px;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  background-color: #1a1a1a;
+}
+
+.contenedor-pelis .items:hover{
+  background-color: #262626;
+}
+
+.contenedor-pelis .detalle{
+  position: relative;
+  display: inline;
+  width: 100%;
+  padding: 10px;
+  border: 0;
+  border-radius: 0;
+  margin-left: 10px;
+  background-color: rgba(0,0,0, 0.08);
+}
+.detalle label{
+    display: block;
+}
+
+
+.estreno, .tresd, .taquillera{
+  position: absolute;
+  width: 50px;
+}
+
+.estreno{
+  bottom: 0;
+  right: 0;
+}
+
+.tresd{
+  top: 5px;
+  right: 5px;
+}
+
+.taquillera{
+  display: none;
+  bottom: 2px;
+  right: 60px;
+}
+
+img.ranking{
+  width: 20px;
+  cursor: pointer;
+}

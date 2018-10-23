@@ -1,0 +1,37 @@
+BASE DE DATOS:
+
+Esta indexada / marcada para una búsqueda más rápida.
+representan datos de una mismo contexto.
+Organizado para una propósito específico.
+
+Para que sirven: para almacenar, acceder, manipular, analizar.
+
+MySQL
+
+para conectarse por la terminal o usando app (ej: phpmyadmin)
+
+BaseDeDatos <--- mySQL <--- Cliente
+
+Diseñar una base de datos:
+
+> DATOS (varias entradas, ej: usuario)
+> REFERENCIAL (una sola entrada por id, ej: categoríSas de preguntas)
+
+Tipos de Datos: Númérico, Fecha y Texto(string).
+
+mySQL Workbench (app)
+
+1)
+
+CREATE DATABASE preguntados;
+
+2)
+
+CREATE TABLE usuarios (
+	id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    email VARCHAR(60) UNIQUE NOT NULL,
+    avatar VARCHAR(200),
+    pass VARCHAR(200) NOT NULL,
+    facebook_id VARCHAR(300) UNIQUE
+)

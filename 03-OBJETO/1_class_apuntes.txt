@@ -1,0 +1,145 @@
+PALABRA RESERVADA CLASS:
+
+(EL OBJETO ES 'Persona')
+
+class Persona {
+  //..
+}
+
+DSP DEFINIMOS ATRIBUTOS:
+
+class Persona {
+  public $nombre;
+  public $edad;
+  public $dni;
+}
+
+atributo publico --> puedo accederlo y modificarlo.
+Cualquiera puede modificarlo.
+Por defecto todas son publicas.
+
+CLASE CONSTRUCTORA:
+Los constructores son funciones en una clase que son invocadas
+que se crean automáticamente cuando se crea una nueva instancia
+de una clase con NEW (*).
+
+public fuction __construct() {
+  //..
+}
+
+MÉTODO CONSTRUCTOR:
+
+class Persona {
+  public $nombre;
+  public $edad;
+  public $dni;
+
+  public fuction __construct() {
+    echo 'Nací<br>';
+  }
+}
+
+los "()" estan al final de la funciones porque pueden recibir parámetros.
+Si Persona() ... public fuction __construct() recibe al parámetro.
+
+Cuando ejecutamos Persons() ... busca fuction __construct() primero y lo ejecuta.
+__construct() debe tener un parámetro:
+
+-----------------
+(en pruebas.php pongo:)
+
+$pepe = new Persona('Pepe', 999, 16);
+                    ______  ___  __
+
+------------------
+(en Persona.php pongo:)
+
+class Persona {
+  public $nombre;
+  public $edad;
+  public $dni;
+
+  public function __construct( $elNombre, $elDni, $laEdad  ) {
+                              _________  ______  _______
+    $this->nombre = $elNombre;
+    _____
+    $this->dni = $elNombre;
+    _____
+    $this->edad = $elNombre;
+    _____
+
+  }
+}
+
+$this ---> se usa solo dentro de las funciones.
+
+AHORA... SI LA VARIABLE EDAD NO LLEGA,
+(HACIENDO LO DE ABAJO) ES IGUAL A CERO POR DEFECTO:
+
+class Persona {
+  public $nombre;
+  public $edad;
+  public $dni;
+
+  public function __construct( $elNombre, $elDni, $laEdad = 0  ) {
+                                                  __________
+    $this->nombre = $elNombre;
+    $this->dni = $elNombre;
+    $this->edad = $elNombre;
+  }
+}
+
+SI QUIERO DAR LA OPCION DE CAMBIAR ALGUNO DE LOS ATRIBUTOS:
+
+-----------------
+(en pruebas.php pongo:)
+
+$pepe = new Persona('Pepe', 999, 16);
+$pepe->cambiarDni ( 34324234 );
+$pepe->saludar ();
+
+-----------------
+(en Persona.php pongo:)
+
+class Persona {
+  private $nombre;
+  private $edad;
+  private $dni;
+
+  public function __construct( $elNombre, $elDni, $laEdad = 0  ) {
+                                                  __________
+    $this->nombre = $elNombre;
+    $this->dni = $elNombre;
+    $this->edad = $elNombre;
+  }
+
+  public function cambiarDni( $elDni ) {
+    $this->dni = $elNombre;
+  }
+
+  public function saludar() {
+  echo 'Mi nombre es: '.$this->nombre.'<br>';
+  }
+
+}
+
+
+SE ACOSTUMBRA CREAR UNA CARPETA PARA LAS CLASES
+CON EL NOMBRE DE "MODELOS" O "CLASES",
+CON EL PHP ADENTRO CON EL NOMBRE DE LA CASE (Ej: Persona.php)
+
+(*) new ---> Para crear (en este caso) alguien.
+$pepe = new Persona();
+
+AL IMPRIMIRLO CON var_dump($alguien)...
+object(Persona)[1]
+
+PARA QUE TOQUE UN ATRIBUTO DE ALGUIEN...
+$alguien->nombre = 'Pepe';
+________________
+
+$alguien->nombre = UNA NUEVA VARIABLE
+
+COMBIENE QUE TODOS LOS PHP DE CLASES (Ej: Persona.php)
+COMBIENE COMBINARLAS EN UN SOLO PHP QUE LAS CONTIENE INCLUIDAS ADENTRO
+Y LUEGO LLAMAR AL PRIMER PHP UTILIZANDO INCLUDE.

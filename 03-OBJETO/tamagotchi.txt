@@ -1,0 +1,191 @@
+class tamagotchi{
+  private $estado;
+
+  public function comer() {
+    if ($this->estado == 'feliz'){
+      asdsadasdas
+    }
+    else if ($this->estado == 'triste') {
+      sdsadasdsa
+    }
+  }
+}
+
+____________________________________________________________
+
+Cuadro:
+
+ ________________________________________________
+|                                                |
+| CLASE (TAMAGOTCHI)                             |
+| _______________________________________________|
+|                                                |
+| ESTADOS (feliz, triste, hambriento, sediento)  |
+|          -privado                              |
+| _______________________________________________|
+|                                                |
+| INTERACCIONES (alimentar, hidratar, mimar)     |
+|          -público                              |
+|________________________________________________|
+
+
+(ver cuadro del celular)
+
+____________________________________________________________
+
+CASO DE EJEMPLO:
+
+En autoload.php:
+
+include_once 'Models/Tamagochi.php';
+include_once 'Models/Estados.php';
+include_once 'Models/Feliz.php';
+include_once 'Models/Triste.php';
+include_once 'Models/Hambriento.php';
+include_once 'Models/Sediento.php';
+
+----------------------------------
+
+En Models/Estados.php:
+
+//no puedo instanciar una clase abstract (un new)
+
+abstract class Estado {
+
+  public abstract function meDieronComida();
+  public abstract function meDieronBebida();
+  public abstract function meDieronAmor();
+
+  /*Por ser abstract hay q copiar el nombre de las funciones
+  igual a cada uno de sus hijos. Haya q re definirlos en los hijos. */
+
+}
+
+----------------------------------
+
+En Models/Feliz.php:
+
+class Feliz extends Estado {
+
+  public fuction meDieronComida() {
+    echo 'Genial!! No me quejo!';
+    return $this;
+  }
+
+  public fuction meDieronBebida() {
+    asdsadsadsa
+  }
+
+  public fuction meDieronAmor() {
+    asdsadsadsa
+  }
+
+}
+
+----------------------------------
+
+En Models/Triste.php:
+
+class Triste extends Estado {
+
+  public fuction meDieronComida() {
+    echo 'bip bip. Burrr *vómita*';
+    return $this;
+  }
+
+  public fuction meDieronBebida() {
+    asdsadsadsa
+  }
+
+  public fuction meDieronAmor() {
+    asdsadsadsa
+  }
+
+}
+
+----------------------------------
+
+En Models/Hambriento.php:
+
+class Hambriento extends Estado {
+
+  public fuction meDieronComida() {
+    echo 'Gracias a Dios... Lo necesitaba.';
+    $nuevoEstado = new Feliz():
+    return $nuevoEstado;
+  }
+
+  public fuction meDieronBebida() {
+    asdsadsadsa
+  }
+
+  public fuction meDieronAmor() {
+    asdsadsadsa
+  }
+
+}
+
+----------------------------------
+
+En Models/Sediento.php:
+
+class Sediento extends Estado {
+
+  public fuction meDieronComida() {
+    echo 'No quiero comer, quiero tomar algo.';
+    return $this;
+    /*retorna el objeto sediento*/
+  }
+
+  public fuction meDieronBebida() {
+    asdsadsadsa
+  }
+
+  public fuction meDieronAmor() {
+    asdsadsadsa
+  }
+
+}
+
+----------------------------------
+
+En Models/Tamagochi.php:
+
+class tamagotchi {
+
+  private $estado;
+
+  /*constract es como empieza el objeto, Inicia estando feliz.*/
+
+  public function __construct() {
+    $this->estado = new Feliz();
+  }
+
+  public function comer() {
+    $this->estado = $this->estado->meDieronComida();
+  }
+
+  public function beber() {
+    dsdasd
+  }
+
+  public function mimar() {
+    asdsada
+  }
+
+}
+
+----------------------------------
+
+En ejecuta_mascota.php:
+
+include_once 'autoload.php';
+$mascota = new Tamagotchi();
+
+echo '<br>Antes de comer<br>'
+$mascota = new comer();
+var_dump($mascota);
+
+echo '<br>Despues de comer<br>'
+
+var_dump($mascota);

@@ -1,0 +1,85 @@
+Llave Foránea: para q sirve?
+general relaciones entre los objetos.
+
+PREBLEMAS, yo quiero:
+
+* Nombre y apellido u¿unido en una solo camapo:
+* Campo que cuente la cantidad e letras:
+
+SOLUCIONES (cambios no permanentes):
+
+>> CONCAT
+
+a) SELECT CONTACT ('Hola','a',' todos!');
+resultado --> Hola a todos!
+
+b) SELECT title, length, CONCAT(title,' ', length) AS title_length FROM movies;
+resultado --> agrega columna nueva "title_length"
+
+
+>> LENGTH
+
+a) SELECT id, LENGTH(title), title, length, CONCAT(title, ' ', lenght) as title_length
+
+
+>> REPLACE
+
+a) SELECT REPLACE (comentario, 'No me gusta', 'Me encanta' as cambiado FROM comentario)
+
+b) SELECT title REPLACE (title, 'Guerra', 'Paz' FROM Movies)
+resultado --> de 'La Guerra de las Galaxias' a 'La Paz de las Galaxias'
+
+Ahora para numeros...
+
+
+>> COUNT
+
+a) SELECT count(*) FROM movies
+
+
+>> AVG / MIN / MAX
+
+a) SELECT AVG(*), MIN(awars), MAX(rating) FROM movies
+
+b) SELECT count(*) FROM actor_movie WHERE movie_id = 1
+
+c) SELECT movies.idtitle, title, count(actor_id) AS cantidad_actores
+    FROM movies
+      LEFT JOIN actor_movie ON movies.id = actor_moive.movie_id
+    GROUP BY movies.id, title;
+
+movies.iD (movies es el nombre de la tabla y id es la columna)
+
+AS (agregarlo a una columna nueva cantidad_actores)
+
+FROM asd JOIN wer (fijate en la tabla asd y también en wer)
+
+LEFT (agrega la pelis aunq no tenga actores)
+
+ON fgh = wer.fgh (donde fgh es igual al fgh de la tabla wer)
+
+d) SELECT movies.idtitle, genres.name, count(actor_id) AS cantidad_actores
+    FROM movies
+      LEFT JOIN actor_movie ON movies.id = actor_moive.movie_id
+      JOIN genres ON movies.genre_id = genres.id
+    --WHERE count(actor_id>2) (where tiene que ir despues del from)
+    GROUP BY movies.id, title;
+    HAVING WHERE count(actor_id>2) (para ponerlo al final del group tiene q ponerle having a delante)
+
+///
+FILTROS POR GENEROS:
+
+agregamos un query php el principio del código
+
+$query2 = $conex->query('SELECT * FROM genres');
+$generos = $query2->fetchAll(PDO::FETCH_ASSOC)
+
+<form class=""action=""method="get">
+  <option value="">Todos</option>
+  <?php foreach ($generos as $genero): ?>
+    <option value="<?= $genero['id']?>"><?= $genero['name'] ?></option>
+  <?php endforeach; ?>
+  <button type="button" name="button"></button>
+</form>
+
+(incompleto)
