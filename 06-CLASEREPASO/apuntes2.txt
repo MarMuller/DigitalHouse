@@ -116,3 +116,5 @@ class BD {
 }
 
 $base = new BD();
+
+**LOS METODOS SIEMPRE DEBE DEVOLVER (return) ALGO** --> booleano, num, string, etc..
