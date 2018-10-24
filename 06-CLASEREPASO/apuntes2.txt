@@ -48,19 +48,19 @@ class remera {
 
 
   public function getID () {
-    return $this->$id;
+    return $this->id;
   }
 
   public function getTalle () {
-    return $this->$talle;
+    return $this->talle;
   }
 
   public function getSexo () {
-    return $this->$sexo;
+    return $this->sexo;
   }
 
   public function getColor () {
-    return $this->$color;
+    return $this->color;
   }
 
 
@@ -93,7 +93,7 @@ class BD {
     try {
       $this->conex = new PDO($this->dsn,$this->user,$this->pass,$this->opt);
     }
-    catch {
+    catch (PDOException $ex) {
       echo 'El error es:'.$ex->getMessage();
     }
   }
