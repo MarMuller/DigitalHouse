@@ -1,0 +1,118 @@
+Remera:
+-id
+-talle
+-sexo
+-color
+
+
+
+BD:
+-dsn
+-user
+-pass
+-conex
+
++ __construct()
++ guardar remera (array)
++ listar remera (): [remera]
++ eliminar remera (int)
++ buscarremera por id (int) : remera
++ modificar remera (remera)
+
+
+-------------
+
+CLASES:
+
+las clases van en una carpera aparte ('models').
+
+-------------
+
+
+CLASE REMERA:
+
+class remera {
+  private $id;
+  private $talle;
+  private $sexo;
+  private $color;
+
+  function __construct ($id,$talle,$sexo,$color) {
+
+    $this->id= $id;
+    $this->setTalle($talle);
+    $this->setSexo($sexo);
+    $this->setColor($color);
+
+  }
+
+
+  public function getID () {
+    return $this->$id;
+  }
+
+  public function getTalle () {
+    return $this->$talle;
+  }
+
+  public function getSexo () {
+    return $this->$sexo;
+  }
+
+  public function getColor () {
+    return $this->$color;
+  }
+
+
+  public function setTalle ($talle) {
+    $this->talle = $talle;
+  }
+
+  public function setSexo ($sexo) {
+    $this->sexo = $sexo;
+  }
+
+  public function setColor ($color) {
+    $this->color = $color;
+  }
+}
+
+
+-------------
+
+CLASES BD:
+
+class BD {
+  private $dsn = 'mysql:host=localhost;dbname=remeras';
+  private $user = 'carsdsa';
+  private $pass = '123';
+  private $opt = [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION]
+  private $conex;
+
+  function __construct () {
+    try {
+      $this->conex = new PDO($this->dsn,$this->user,$this->pass,$this->opt);
+    }
+    catch {
+      echo 'El error es:'.$ex->getMessage();
+    }
+  }
+
+  public function guardarRemera ($array) {
+
+    a)
+    $conexAqui = new PDO($this->dsn,$this->user,$this->pass,$this->opt);
+    $conexAqui->prepare('insert into..');
+
+    b)
+    $this->$conex->prepare('insert into..');
+
+    *insertar el try y catch de carear remera*
+    // dentro de el:
+    $insertarRemera = $this->$conex->prepare('INSERT INTO remeras(talle,color,sexo) VALUES (:talle,:color,:sexo)');
+
+
+  }
+}
+
+$base = new BD();
