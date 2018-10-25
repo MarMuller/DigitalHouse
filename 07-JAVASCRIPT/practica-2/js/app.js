@@ -13,6 +13,8 @@ multiplicar();
 
 */
 
+/*----------------------------*/
+
 //EJERCICIO 3
 /*
 
@@ -44,6 +46,8 @@ parOImpa();
 
 */
 
+/*----------------------------*/
+
 //EJERCICIO 4
 /*
 
@@ -65,11 +69,12 @@ function noes() {
 }
 
 noes();
-
 */
 
-//EJERCICIO 5
+/*----------------------------*/
 
+//EJERCICIO 5
+/*
 var numpares = [];
 
 function sisonpares() {
@@ -82,3 +87,59 @@ function sisonpares() {
 
 sisonpares();
 console.log(numpares);
+*/
+
+/*----------------------------*/
+
+//ARRAYS
+
+//EJERCICIO 1
+
+/*
+var estudiante = {
+  nombre: "Laura",
+  curso: "Álvarez",
+  dni: 38777555,
+  email: 'lau_alvaez@hotmail.com'
+};
+
+var nuevoArray = [];
+
+console.log(estudiante);
+
+for (let value of Object.values(estudiante)) {
+  nuevoArray.push(value);
+};
+
+//Object.keys(user) = [name, age]
+//Object.values(user) = ["John", 30]
+//Object.entries(user) = [ ["name","John"], ["age",30] ]
+
+console.log (nuevoArray);
+
+ || color != '#0f0' || color != '#00ff00'
+*/
+
+//EJERCICIO 2
+
+var fondoColor = document.querySelector('body');
+
+function cambiarColorDeFondoDelBody(color) {
+  if ((color == 'green') || (color == '#0f0') || (color == '#00ff00')) {
+    fondoColor.style.backgroundColor = 'white';
+    console.log('El color: '+color+', no se puede.');
+  } else {
+    fondoColor.style.backgroundColor = color;
+    console.log('El color: '+color+', es válido.');
+  }
+}
+
+cambiarColorDeFondoDelBody('#000');
+
+/*----------------------------*/
+
+//ARRAYS
+
+//EJERCICIO 1
+
+//var numeros = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
