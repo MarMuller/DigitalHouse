@@ -1,0 +1,169 @@
+TEMAS DE HOY:
+Iteradores (while, for, etc...)
+Funciones (a veces con paámetros)
+
+---------------------------------
+
+Iteradores:
+
+FOR:
+
+for (incio; condicion; incremento) {
+  //srasa
+}
+
+for (var i = 0; i < 4; i++) {
+  console.log("Hola"+i);
+}
+
+resultado:
+// Hola 1
+// Hola 2
+// Hola 3
+// Hola 4
+
+SWITCH:
+
+switch (fruta) {
+  case "frutilla": console.log("La frutilla del prostre.");
+  break;
+  case "manzana": console.log("Me prestás tu reloj? Manzana.");
+  break;
+  case "pera": console.log("Dos pesitos la pera.");
+  break;
+  default: console.log("Otra fruta.");
+}
+
+(si fruta es igual a manzana, pasa tal cosa... si es manzana, tal otra...)
+
+WHILE:
+
+while (condicion) {
+  //sarasa
+}
+
+var a = 0;
+
+while (a < 3) {
+  console.log("Hola");
+  a++;
+}
+
+DO + WHILE:
+
+do {
+  lo ejecuta al menos una vez.
+} while (condicion);
+
+BREAK; / CONTINUE;
+
+BREAK --> sale de la operación
+CONTINUE --> omite lo ultimo de la operación pero sigue repitiendo la operación.
+
+---------------------------------
+
+Ahora las funciones...
+
+FUNCIONES:
+
+function elProducto(n1,n2) {
+  return n1 * n2; //Devuelve la multiplicación de n1 y n2.
+}
+
+la función se ejecuta cuando se la invoca:
+
+elProducto(2, 5); //devuelve 10.
+
+Declaración:
+
+function hola() {
+  return console.log("hola");
+}
+
+//invocación
+hola();
+
+Expresión:
+
+var hola = funtion() {
+  return console.log("hola");
+}
+
+PARAMETROS:
+
+//si le asignamos un valor en el parámentro no es obligatorio llenar ese campo, porque ya tiene una valor por default.
+
+var hola = funtion (nombre, apellido="fulanito") {
+  return console.log("hola"+nombre+' '+apellido);
+}
+
+SCOPE => ALCANCE:
+
+scope (alcance de una variable)
+
+var saludo = "hola"; //variables globales
+
+La variables creadas dentro de la funciones se crean y mueren dentro de ellas.
+No pueden ser llamadas por fuera de la función.
+
+----------------------------
+
+CALLBACKS:
+
+fuction sumar(n1,n2) {
+  return n1 +n2;
+}
+
+fuction restar(n1,n2) {
+  return n1-n2;
+}
+
+fuction OpMate(n1,n2,choosenOp) {
+  return choosenOp(n1+n2);
+}
+
+-----------------------------
+
+FOR OF:
+
+var miArray = [1,2,3];
+
+for (var numero of miArray) {
+  console.log (numero);
+}
+
+//1
+//2
+//3
+
+
+var miString = "hola";
+
+for (var letra of miString) {
+  console.log (letra);
+}
+
+//h
+//o
+//l
+//a
+
+FOREACH: //sólo para arrays
+
+var miArray = [1,2,3];
+
+miArray.forEach(fuction(numero) {
+  console.log (numero);
+});
+
+MAP:
+
+map() recibe un callback o función anonima como parámetro como parametro una funcion o callback.
+
+REDUCE:
+
+(...)
+
+ParseInt();
+
+Number();
