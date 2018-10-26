@@ -53,6 +53,9 @@ window.location.href = "www.google.com" //devuleve la url nueva y redirige la pa
 
 (*) LOS SCRIPT JUST AL FINAL DEL BODY
 
+
+
+
 window.onload //Al terminar de cargar la ventana,para q no se ejecute antes
 
 Es buena costumbre hacer esto
@@ -62,6 +65,8 @@ window.onload = function () {
   //todo el script va acá adentro
 
 }
+
+
 
 SELECTORS:
 
