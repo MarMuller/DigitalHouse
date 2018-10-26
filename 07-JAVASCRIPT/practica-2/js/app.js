@@ -181,7 +181,7 @@ isNaN intenta convertir el parámetro pasado a un número. Si el parámetro no s
 
 //var num = [];
 
-var suma = 0;
+var altura = 0;
 var letras = [];
 var calle;
 
@@ -189,7 +189,7 @@ function sumarNumeros() {
   for (var char of enigma) {
     if (Number(char)) {
       //console.log(char);
-      suma = parseInt(suma) + parseInt(char);
+      altura = parseInt(altura) + parseInt(char);
     }
   }
 }
@@ -217,6 +217,10 @@ function unirLetras() {
   calle = letras.join('');
 }
 
+function capitalize(x) {
+  return x.replace(/\b\w/g, l => l.toUpperCase());
+}
+
 sumarNumeros();
 soloLetras();
 
@@ -230,19 +234,7 @@ unirLetras();
 //console.log(letras);
 //console.log(calle);
 
-function capitalize(x) {
-  x.replace(/\b\w/g, l => l.toUpperCase());
-}
+var laCalle = capitalize(calle);
 
-calle = calle.replace(/\b\w/g, l => l.toUpperCase());
-
-var direccion = 'La dirección secreta es: '+calle+' '+suma+'.';
+var direccion = 'La dirección secreta es: '+laCalle+' '+altura+'.';
 console.log(direccion);
-
-//var algo = 'no me gusta q no salga bien.';
-//console.log(algo);
-
-//algo = capitalize(algo);
-//algo = algo.replace(/\b\w/g, l => l.toUpperCase());
-
-//console.log(algo);
