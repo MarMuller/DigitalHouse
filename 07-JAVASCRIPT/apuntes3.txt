@@ -1,0 +1,51 @@
+alert(): notificación para el usuario.
+
+prompt(): Para ingresar un dato.
+
+confirm('...') --> true o false (si acepta o no el alerta)
+
+location.href --> retorna toda la ubicación url y permite cambiar url para redirigir. Para que no busque dentro de la url en la que ya estoy, hay q agregar al principio un http://.
+
+location.host --> www.google.com
+
+location.pathname --> /watch
+
+location.search --> ?v=ib2vq... (el $_GET)
+
+history.lenght -->  cantidad e items del historial.
+
+history.back() -->  vuelve al doc anterior.
+
+history.forward() -->  vuelve al doc anterior.
+
+history.go(i) -->  se maneja con mun negativos y positivos (positivos para ir hacia adelante tantas veces, y negativos para ir hacia atras tantas veces).
+
+
+------------
+
+
+D.O.M.2
+
+<em> y <b> --> negrita, pero...
+
+<em> --> el navegador detecta q es un texto con enfasis.
+
+innerText: devuelve el texto dentro de las etiquetas
+
+innerHTML:devuelve el texto mas todas las etiquetas q las contienen.
+
+para cambiar el contenido de una boton:
+btn.parentElement.innerText = 'blah blah';
+
+Con  los UL y LI:
+var lista = document.querySelector('ul');
+var hijosLista = lista.children;
+
+padre..createChild();
+
+padre.removeChild();
+
+lista.setAttribute('id','my-id');
+lista.setAttribute('class','my-class');
+
+lista.getAttribute('class'); //retorna my-class

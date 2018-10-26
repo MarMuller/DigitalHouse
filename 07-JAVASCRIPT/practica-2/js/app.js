@@ -175,12 +175,6 @@ console.log(raizCuadrada);
 var enigma = ["l", 1, "a", 2, 2, 5, "p", 5, 7, 5, 3, "e", 6, "r", 7, 6, 5, 3, 2, 1, "s", 9, 9, 9, 6, "e", 2, "v", 5, "e", 3, "r",
 2, "a", 1, 6, 4, 1, 2, "n", 2, "c", 3, 5, 5, 5, 7, "i", 4, "a", 5, 2, 1, 3, "e", 6, "s", 7, "l", 4, "a", 3, "c", 2, 3, 1, 5, 3, 2, "l", 3, "a", 4, "v", 5, "e", 6];
 
-/*
-isNaN intenta convertir el parámetro pasado a un número. Si el parámetro no se puede convertir, devuelve true; en caso contrario, devuelve false.
-*/
-
-//var num = [];
-
 var altura = 0;
 var letras = [];
 var calle;
@@ -203,18 +197,18 @@ function soloLetras() {
   }
 }
 
-function textoExtra() {
+function textoExtra(x) {
   for (var i = 7; i < letras.length; i++) {
-    letras.pop();
+    x.pop();
   }
 }
 
-function agregarEspacio() {
-  letras.splice(2, 0, " ");
+function agregarEspacio(x) {
+  x.splice(2, 0, " ");
 }
 
-function unirLetras() {
-  calle = letras.join('');
+function unirLetras(x) {
+  calle = x.join('');
 }
 
 function capitalize(x) {
@@ -226,9 +220,9 @@ soloLetras();
 
 //console.log(letras);
 
-textoExtra();
-agregarEspacio();
-unirLetras();
+textoExtra(letras);
+agregarEspacio(letras);
+unirLetras(letras);
 
 //console.log(suma);
 //console.log(letras);
