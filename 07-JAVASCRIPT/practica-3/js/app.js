@@ -1,45 +1,80 @@
 window.onload = function () {
 
+  console.log('Ejercicio A');
+
   var lista = document.querySelector('ul');
   var hijosLista = lista.children;
 
-  /*
-  var items = [];
-
   function cadaItem() {
-    for (var i = 0; i < lista.length; i++) {
-      var item = document.querySelector('li');
-      items.push(item);
+    for ( var items of hijosLista ) {
+      console.log(items.innerText);
     }
   }
 
   cadaItem();
-  */
 
-  console.log(lista);
-  console.log(hijosLista);
+  /*-----------------------*/
+  console.log('Ejercicio B');
+
+  console.log(lista.innerHTML);
+
+  /*-----------------------*/
+  console.log('Ejercicio C');
 
   var elTitulo = document.querySelector('h1');
   elTitulo.innerHTML = '<em>Javascript is the best my friends!</em>';
-  //imprime también el <em>
+
+  console.log('<----------');
+
+  /*-----------------------*/
+  console.log('Ejercicio D');
 
   var losParrafos = document.querySelectorAll('p');
 
-  console.log(losParrafos);
+  //console.log(losParrafos);
 
-  function elemPares() {
-    for (n of losParrafos) {
-      if (n%2 == 0) {
-        losParrafos[n].innerHTML = '<ahref="#">enlace generado desde JS</a>';
+  function cambiarCont(x) {
+    return x.innerHTML = '<a href="www.google.com">enlace generado desde JS</a>';
+  };
+
+  //console.log(Object.keys(losParrafos)); //Toma el valor del indice y los pone entro array
+
+  function editPares(array) {
+    for (var key of Object.keys(array) ) {
+      if ( key%2 != 0 ) {
+        cambiarCont(array[key]);
       }
     }
-  }
+  };
 
-  elemPares();
+  editPares(losParrafos);
 
-
-
-
+  console.log('<----------');
 
 
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+} //fin de window.load

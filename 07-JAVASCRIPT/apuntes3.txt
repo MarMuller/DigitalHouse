@@ -41,7 +41,7 @@ Con  los UL y LI:
 var lista = document.querySelector('ul');
 var hijosLista = lista.children;
 
-padre..createChild();
+padre.createChild();
 
 padre.removeChild();
 
