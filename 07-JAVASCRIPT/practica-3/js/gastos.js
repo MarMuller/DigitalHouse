@@ -36,7 +36,7 @@ window.onload = function () {
 
         var objeto = {
           nombre : nameMember[i],
-          gastos : costMember[i]
+          gastos : parseInt(costMember[i])
         };
 
         arrayFamilia.push( objeto );
@@ -46,28 +46,38 @@ window.onload = function () {
       console.log(numFamilia);
       console.log(arrayFamilia);
 
-      console.log(Object.keys(arrayFamilia));
+      //---¿Quién gastó más?
 
-      function cualGastaMas(array) {
-        var largest = Math.max.apply(Math, array);
+      var gastosDeTodos = [];
+
+      function juntarGastos() {
+        for (persona of arrayFamilia) {
+          gastosDeTodos.push(persona.gastos);
+        }
       }
 
-      function cualGastaMenos(array) {
-        var largest = Math.min.apply(Math, array);
+      juntarGastos();
+
+      function cualGastaMas() {
+        var montoMasAlto = Math.max.apply(Math, gastosDeTodos);
+        for (var i = 0; i < arrayFamilia.length; i++) {
+          if (montoMasAlto == arrayFamilia[i].gastos) {
+            return arrayFamilia[i].nombre;
+          }
+        }
       }
 
-      /*
-      function Product(name, price) {
-        this.name = name;
-        this.price = price;
+      function cualGastaMenos() {
+        var montoMasBajo = Math.min.apply(Math, gastosDeTodos);
+        for (var i = 0; i < arrayFamilia.length; i++) {
+          if (montoMasBajo == arrayFamilia[i].gastos) {
+            return arrayFamilia[i].nombre;
+          }
+        }
       }
-      */
 
-      //var masGasto = Math.max(5, 10);
-      //var menosGasto = Math.min(5, 10);
-
-      console.log('El integrante que más gastó fue: '+cualGastaMas(arrayFamilia['gastos']));
-      console.log('El integrante que menos gastó fue: '+cualGastaMenos(arrayFamilia['gastos']));
+      console.log('El integrante que más gastó fue: '+cualGastaMas()+'.');
+      console.log('El integrante que menos gastó fue: '+cualGastaMenos()+'.');
 
     }
 
