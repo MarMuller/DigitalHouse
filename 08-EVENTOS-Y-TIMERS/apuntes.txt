@@ -24,7 +24,7 @@ function miFunction(){
 
 Maldito THIS:
 
-comprar(this); // En un boton del HTML.
+onlclick= "comprar(this);" // En un boton del HTML.
 
 function comprar(elemento) {
   console.log(elemento);
