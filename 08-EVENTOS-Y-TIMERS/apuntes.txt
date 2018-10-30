@@ -1,0 +1,64 @@
+EVENTOS Y TIMERS EN JS:
+
+formas de asignar EVENTOS
+
+element.onNameEvent = function() {
+  alert('Dont push me!');
+}
+
+Para asignar dos funciones a un mismo evento:
+
+(dsp del .onclick clasico agregar...)
+
+miBoton.addEventListener("click" , function () {
+  console.log("dsds");
+});
+
+ó (con funcion afuera)
+
+miBoton.addEventListener( "click" , miFuncion() );
+
+function miFunction(){
+ BLAH BLAH;
+}
+
+Maldito THIS:
+
+comprar(this); // En un boton del HTML.
+
+function comprar(elemento) {
+  console.log(elemento);
+} //En la hoja de JS
+
+//te manda el elemento del boton completo con HTML y sus etiquetas completas.
+
+//Si lo que quiero es que me tome solo el estilo
+
+function comprar(elemento) {
+  console.log(elemento.style);
+} //En la hoja de JS
+
+----------------------
+
+preventDefault() --> frenar todo lo que tiene q hacer por default
+
+youtube.onclick = function() {
+  evento.preventDefault(); // no importa si lo pones al final o al principio
+  if(confirm('Querés salir?')){
+    window.location.href = "www.google.com"
+  }
+}
+
+----------------------
+
+TIMERS:
+
+function dame5() {
+  console.log('pasaron 5 seg');
+}
+
+setTimeout(dame5, 5000); //el tiempo se mide por milisegundo.
+
+setInterval(dame5, 5000); //igual que el timeOut pero este lo repite.
+
+clearInterval(dame5);
