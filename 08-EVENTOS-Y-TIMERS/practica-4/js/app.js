@@ -29,7 +29,7 @@ window.onload = function() {
     do {
       var li=document.createElement('li');
       li.innerHTML = prompt("Ingrese el contenido del "+(i+1)+"° item.");
-      //li.setAttribute('class', 'clickeable');
+      li.setAttribute('class', 'item'+(i+1));
     } while (li.innerHTML == "");
     ul.appendChild(li);
   }
@@ -58,17 +58,28 @@ window.onload = function() {
   eliminada.
   */
 
-  var itemClickeable = document.querySelectorAll('li');
+  var itemsClick = document.querySelectorAll('li');
 
-  console.log(itemClickeable);
+  console.log(itemsClick);
 
-  for (item of itemClickeable) {
-    //item.style.background = 'red';
-    item.onclick = function() {
-      console.log('hiciste el click');
-      item.style.display = 'none';
+  var item = itemsClick[1];
+
+  function hacerClick(){
+    item = itemsClick[i];
+    console.log('Me hiciste click.');
+
+    if (item.clicado) {
+      item.style.background = 'green';
     }
+
+  }
+
+  for (item of itemsClick) {
+    item.addEventListener( "click" , hacerClick );
   }
 
 
-}
+  //var item = itemsClick[2];
+
+
+} //fin windows.load
