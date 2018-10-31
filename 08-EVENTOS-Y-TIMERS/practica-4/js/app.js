@@ -61,22 +61,29 @@ window.onload = function() {
   var itemsClick = document.querySelectorAll('li');
 
   console.log(itemsClick);
+  //console.log(itemsClick[3]);
 
-  var item = itemsClick[1];
+  var click = false;
 
-  function hacerClick(){
-    item = itemsClick[i];
-    console.log('Me hiciste click.');
+  function fuiClickeado() {
+    var click = true;
+  }
 
-    if (item.clicado) {
-      item.style.background = 'green';
+  for (var i = 0; i < itemsClick.length; i++) {
+    console.log(itemsClick[i]);
+    if (itemsClick[i].onclick) {
+      itemsClick[i].style.color = 'red';
     }
-
   }
 
-  for (item of itemsClick) {
-    item.addEventListener( "click" , hacerClick );
-  }
+  // function editarItem() {
+  //   item.style.color = 'green';
+  //   console.log('Me hiciste click.');
+  // }
+  //
+  // for (item of itemsClick) {
+  //   item.onclick = editarItem;
+  // };
 
 
   //var item = itemsClick[2];
