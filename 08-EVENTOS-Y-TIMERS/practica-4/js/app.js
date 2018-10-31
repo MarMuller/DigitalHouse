@@ -29,7 +29,9 @@ window.onload = function() {
     do {
       var li=document.createElement('li');
       li.innerHTML = prompt("Ingrese el contenido del "+(i+1)+"° item.");
-      li.setAttribute('class', 'item'+(i+1));
+      li.setAttribute('id', 'item'+(i+1));
+      li.setAttribute('class', 'editar');
+      //li.setAttribute('click', 'editItem(item'+(i+1)+')');
     } while (li.innerHTML == "");
     ul.appendChild(li);
   }
@@ -50,43 +52,46 @@ window.onload = function() {
 
   /*-------*/
 
-  /*
-  Una vez con los <​ li>​ en nuestro documento, vamos a permitir que cada uno
-  de ellos pueda ser clicado y que al ser clicado, el mismo desaparezca después
-  de medio segundo. Así mismo, en el párrafo que dice ​ "Tareas
-  completadas: 0" ​ el número 0 deberá aumentar en 1 por cada tarea
-  eliminada.
-  */
-
   var itemsClick = document.querySelectorAll('li');
-
+  console.log('itemsClick:');
   console.log(itemsClick);
   //console.log(itemsClick[3]);
 
-  var click = false;
+  var editable = document.querySelectorAll('.editar');
+  console.log('editable:');
+  console.log(editable);
 
-  function fuiClickeado() {
-    var click = true;
+  function editItem(x) {
+    console.log(x);
+    // var editable = document.getElementById(x);
+    // console.log(editable);
+    // editable.style.color = "green";
   }
 
   for (var i = 0; i < itemsClick.length; i++) {
-    console.log(itemsClick[i]);
-    if (itemsClick[i].onclick) {
-      itemsClick[i].style.color = 'red';
-    }
+    //console.log(editable);
+    itemsClick[i].onclick = editItem("item"+(i+1));
   }
 
-  // function editarItem() {
-  //   item.style.color = 'green';
-  //   console.log('Me hiciste click.');
-  // }
+
+
+  /*-------*//*-------*//*-------*/
+
+  // var lechuzaImg = document.querySelector('img');
+  // console.log(lechuzaImg);
   //
-  // for (item of itemsClick) {
-  //   item.onclick = editarItem;
-  // };
-
-
-  //var item = itemsClick[2];
+  // lechuzaImg.style.width = '300px';
+  // lechuzaImg.style.opacity = "0.5";
+  //
+  // lechuzaImg.onclick = function() {
+  //   if (lechuzaImg.style.width == '300px') {
+  //     lechuzaImg.style.width = '500px';
+  //     lechuzaImg.style.opacity = "1.0";
+  //   } else {
+  //     lechuzaImg.style.width = '300px';
+  //     lechuzaImg.style.opacity = "0.5";
+  //   }
+  // }
 
 
 } //fin windows.load
