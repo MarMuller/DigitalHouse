@@ -11,13 +11,13 @@ window.onload = function() {
       do{
         cantTareas = prompt('Ingresa num de tareas, por favor');
         if ( isNaN(cantTareas) || (cantTareas<3) ) {
-          alert('No es un num válido.');
+          alert('No es un num vÃ¡lido.');
         }
       } while( isNaN(cantTareas) || (cantTareas<3) );
     }
     preguntas();
 
-    var confirmarNum = confirm('El valor ingrasado es '+cantTareas+' ¿Es correcto?');
+    var confirmarNum = confirm('El valor ingrasado es '+cantTareas+' Â¿Es correcto?');
 
   } while( !confirmarNum );
 
@@ -31,7 +31,7 @@ window.onload = function() {
   for (var i = 0; i < cantTareas; i++) {
     do {
       var li=document.createElement('li');
-      li.innerHTML = prompt("Ingrese el contenido del "+(i+1)+"° item.");
+      li.innerHTML = prompt("Ingrese el contenido del "+(i+1)+": item.");
       //li.setAttribute('id', 'item'+(i+1));
       //li.setAttribute('class', 'editar');
       li.setAttribute('onclick', "editItem(this)");
@@ -82,7 +82,7 @@ function editItem(elemento) {
 
   if (numItems == 0) {
     var aviso = document.createElement('p');
-    aviso.innerHTML = "<b>¡Felicitaciones, estás al día con tus tareas!</b>";
+    aviso.innerHTML = "<b>Â¡Felicitaciones, estï¿½s al dï¿½a con tus tareas!</b>";
     document.body.appendChild(aviso);
   }
 

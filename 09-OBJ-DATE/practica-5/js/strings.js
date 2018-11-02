@@ -26,7 +26,7 @@ console.log(wordsPer);
 
 pushear();
 
-var elNumMayor = Math.max.apply(null, wordsPer);
+var elNumMayor = Math.max.apply(null, wordsPer); //Math.max para arrays
 console.log(elNumMayor);
 
 console.log("1) ...................");
@@ -94,7 +94,7 @@ function buscarPalabra2() {
       losParrafos[i].style.color = "red";
       console.log("LISTO!");
     }
-    
+
   }
 }
 
