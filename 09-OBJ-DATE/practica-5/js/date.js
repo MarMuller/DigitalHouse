@@ -90,7 +90,7 @@ console.log(anuncio);
 // solicitan hacer un script que cuente la cantidad de días que faltan para
 // navidad. Quizás para esta labor nos ayude el siguiente método ​getTime().
 
-var diaNavidad = new Date(2019,11,25);
+var diaNavidad = new Date(2018,11,25);
 
 
 var datyXmas = diaNavidad.getDate(); //Día del mes actual (1->31)
@@ -104,7 +104,11 @@ console.log(diaNavidad);
 
 
 //var diferencia = Math.round( ( Date.UTC(yearXmas,monthXmas,datyXmas) - Date.UTC(yearToday,monthToday,dateToday) ) / (1000*60*60*24) );
-var diferencia = Math.round( ( getTime(yearXmas,monthXmas,datyXmas) - getTime(yearToday,monthToday,dateToday) ) / (1000*60*60*24) );
+var diferencia = Math.round( ( diaNavidad.getTime() - diaDeHoy.getTime() ) / (1000*60*60*24) );  //un dia menos
 
 console.log('Faltan: '+diferencia+' días.');
 //var diferencia = Math.round( ( Date.UTC(2012, 02, 30) - Date.UTC(2011, 02, 29) ) / (1000*60*60*24) );
+
+var anuncio2 = document.createElement('p');
+anuncio2.innerText = 'Faltan: '+diferencia+' días para Navidad.';
+document.body.appendChild(anuncio2);
