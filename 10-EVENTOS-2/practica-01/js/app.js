@@ -10,22 +10,69 @@ function crearAlertaOnBlur() {
 
     if (input != null) {
 
-      input.onblur = function() { //usamos "this" porq es una funcion (anonima?) dentro de una funcion.
+      input.onblur = function() { //usamos "this" porq es una funcion (anonima?).
+
+        var inputName = this.getAttribute("name");
+
         if( this.value == "" ) {
           this.classList.add('is-invalid');
-          this.parentElement.querySelector('.invalid-feedback').innerText = "¡Llename el campito por el amor de Jebus!";
-        }
-      }
+          this.parentElement.querySelector('.invalid-feedback').innerText = "Este es campo es obligatorio";
+        } else {
 
-      input.onfocus = function() { //usamos "this" porq es una funcion (anonima?) dentro de una funcion.
-        if( this.value == "" ) {
-          this.classList.remove('is-invalid');
-          this.parentElement.querySelector('.invalid-feedback').display = "none";
-        }
-      }
+          if( inputName == "email" ) {
+            var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+            if ( !(this.value.match(mailformat)) ) {
+              this.classList.add('is-invalid');
+              this.parentElement.querySelector('.invalid-feedback').innerText = "El email es invalido";
+            }
+          }
+
+          if( inputName == "phone" ) {
+            if ( isNaN(this.value) ) {
+              this.classList.add('is-invalid');
+              this.parentElement.querySelector('.invalid-feedback').innerText = "No es un número";
+            }
+          }
+
+          if (inputName == "password") {
+            var formulario = document.querySelector('.contact-form');
+            var password = formulario.querySelector('input[name=password]').value;
+            //console.log(password);
+            //console.log(rePassword);
+            if (password.length < 4) {
+              this.classList.add('is-invalid');
+              this.parentElement.querySelector('.invalid-feedback').innerText = "Las contraseñas deben tener mínimo 4 caracteres";
+            }
+          }
+
+          if (inputName == "rePassword") {
+            var formulario = document.querySelector('.contact-form');
+            var password = formulario.querySelector('input[name=password]').value;
+            var rePassword = formulario.querySelector('input[name=rePassword]').value;
+            var passwordInput = formulario.querySelector('input[name=password]');
+            //console.log(password);
+            //console.log(rePassword);
+            if (rePassword != password) {
+              this.classList.add('is-invalid');
+              //passwordInput.classList.add('is-invalid');
+              this.parentElement.querySelector('.invalid-feedback').innerText = "Las contraseñas no coinciden";
+            }
+            if (rePassword.length < 4) {
+              this.classList.add('is-invalid');
+              this.parentElement.querySelector('.invalid-feedback').innerText = "Las contraseñas deben tener mínimo 4 caracteres";
+            }
+          }
+
+        } //fin else
+
+      } //fin input.onblur
+
+      input.onchange  = function() { //usamos "this" porq es una funcion (anonima?).
+        this.classList.remove('is-invalid');
+        this.parentElement.querySelector('.invalid-feedback').display = "none";
+      } //fin input.onchange
 
     }
-
   }
 }
 
@@ -41,12 +88,12 @@ function crearAlertaOnSubmit(event) {
     if (input != null) {
 
       var inputName = input.getAttribute("name");
-      console.log(inputName);
+      //console.log(inputName);
 
       if( input.value == "" ) {
         event.preventDefault();
         input.classList.add('is-invalid');
-        input.parentElement.querySelector('.invalid-feedback').innerText = "¡Llename el campito por el amor de Jebus!";
+        input.parentElement.querySelector('.invalid-feedback').innerText = "Este es campo es obligatorio";
       }
 
       if( inputName == "email" ) {
@@ -63,6 +110,23 @@ function crearAlertaOnSubmit(event) {
           event.preventDefault();
           input.classList.add('is-invalid');
           input.parentElement.querySelector('.invalid-feedback').innerText = "No es un número";
+        }
+      }
+
+      if ( (inputName == "password") || (inputName == "rePassword") ) {
+        var formulario = document.querySelector('.contact-form');
+        var password = formulario.querySelector('input[name=password]').value;
+        var rePassword = formulario.querySelector('input[name=rePassword]').value;
+        //console.log(password);
+        //console.log(rePassword);
+        if ( rePassword != password ) {
+          event.preventDefault();
+          input.classList.add('is-invalid');
+          input.parentElement.querySelector('.invalid-feedback').innerText = "Las contraseñas no coinciden";
+        } else if ( (rePassword.length < 4) || (password.length < 4) ) {
+          event.preventDefault();
+          input.classList.add('is-invalid');
+          input.parentElement.querySelector('.invalid-feedback').innerText = "Las contraseñas deben tener mínimo 4 caracteres";
         }
       }
 
