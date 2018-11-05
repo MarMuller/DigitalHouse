@@ -76,6 +76,8 @@ function crearAlertaOnBlur() {
   }
 }
 
+var valid;
+
 function crearAlertaOnSubmit(event) {
 
   var formGroup = document.querySelectorAll(".form-group");
@@ -130,12 +132,43 @@ function crearAlertaOnSubmit(event) {
         }
       }
 
+      var valid = true;
+      desaparecerFormulario();
+
+    } else {
+      valid = false;
     }
 
   }
 }
 
+function desaparecerFormulario() {
+  console.log(valid);
+  if (valid == true) {
+    var form = document.querySelector('.contact-form');
+    form.style.display = "none";
+    console.log('Chau Formulario!');
+  } else {
+    console.log('NOP');
+  }
+}
+
+function resultadoInscrip() {
+  var listadoDatos = document.createElement('h1');
+  listadoDatos.innerText = "HOLLLAA";
+  var contenedor = document.querySelector('.col-md-8');
+  contenedor.appendChild(listadoDatos);
+}
+
+resultadoInscrip();
+
 crearAlertaOnBlur();
 
 var formulario = document.querySelector('.contact-form');
 formulario.addEventListener('submit', crearAlertaOnSubmit);
+//formulario.addEventListener('submit', desaparecerFormulario);
+
+// a. Deberá desaparecer / ocultarse el formulario.
+// b. Deberá mostrar en pantalla un listado <ul> con los valores de cada
+// uno de los campos a excepción de las contraseñas.
+// c. Un texto adicional que diga "Gracias por registrarte"
