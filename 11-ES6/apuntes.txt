@@ -1,0 +1,142 @@
+sintaxis del nuevo javascript
+
+estaba basado en enmascript(?)
+
+nueva especificacion de javascript (2015)
+
+cosas nuevas:
+
+web storage:
+herrramienta de js que nos permite almacenar datos en sesion y en la cookie.
+
+diferencia entre una sesion y una cookie:
+si no le ponemos tiempo a la cookie, (IGUAL QUE SESSION) dura mientras este abierto en navegador.
+
+metodos nuevos:
+
+1-localStorage
+2-sessionStorage
+
+1)
+- esto no expira nunca! (excepto si decimos lo contrario)
+- es una objeto literal
+
+para setear algo:
+localStorage.setItem("userName", "Juana"); //setea el atributo userName
+localStorage.getItem("userName"); //devuelve el valor o sino undefined;
+localStorage.removeItem("userName"); //elimina el atributo userName;
+
+2)
+-La diferencia con localStorage es q este los datos se borran al cerrar la ventana.
+
+----
+EJEMPLO:
+
+<script>
+
+  localStorage.setItem("carrito","valor carrito"); //lo crea
+  console.log(localStorage);
+
+  localStorage.removeItem("carrito"); //lo borra
+  console.log(localStorage);
+
+  sessionStoage.setItem("usuario",{nombre : "juana"}); //objeto dentro de usuario
+  console.log(sessionStoage);
+
+</script>
+
+----------------
+
+2 nuevos tipos de variables:
+
+LET = nos sirve para definir variables, a diferencia de var, let es una variable de bloque. Eston nos permite crear variables con el mismo nombre sin sobre-escribir sus valores.
+
+let name = "juana";
+let name = "diego";
+nombre //diego
+
+let name = "juana";
+let name = "carlos"; //error no te deja pisarlo
+
+CONST = se parece a let, no es una variable. es una constante. Es como si fuera una variable que NUNCA podrá cambiar su valor. amenos que sea una objecto literal. No podes re definir la constante, ni cambiar el tipo de objeto.
+
+const DNI = 3423423; //se nombran en mayuscula
+DNI = "PAS-434234"; //ERROR no se puede cambiar su valor porque es una constante
+
+const STUDENT_DATA= {
+  code: "6535634634"
+}
+STUDENT_DATA.email = "adalovelace_ok@gmail.com"; //PERO SI puede asignarle nueva información (si es uan b¿pobjeto literal);
+
+resueltado:
+const STUDENT_DATA= {
+  code: "6535634634",
+  email: "adalovelace_ok@gmail.com"
+}
+
+//SI puedo editar los valores que estan dentro del objeto, por ejemplo: el email o el code;
+
+TEMPLATE LITERALS (o Templade String):
+
+let price = "343";
+let product = "remera para nena";
+
+let message = `La ${product} cuesta ${price}`; //con comillas francesas
+console.log(message); //"La remera para nena cuesta 34";
+
+
+OTROS CONSOLES:
+
+console.table(); //muestra una tabla del objeto literal.
+
+ARROW FUNCTION
+
+forma de escribir una function (anonima) es decir q vive dentro de una variable. No es necesaria al palabra reservada "function".
+
+let suma = (n1, n2) => n1 + n2; //tiene un return de forma implícita. // parentesis para mas de un párametro.
+
+let sayHello = () => "Hello wordl!"; // si no tiene parametros igual se escriben los paréntesis vacios
+
+let form = document.querySelector('.contactForm');
+form.addEventListener("submit", e => e.preventDefault()); //La primer "e", es el parámetro de la function.
+
+como se ejecuta?
+
+suma(5, 10);
+sayHello;
+
+FILTER / MAP <-- metodos para arrays (?) (*)
+
+MAP recorre cada uno de elementos del array y te devuelve otro array con lso mismo elementos.
+FILTER me devuelve una array pero con algun elemento filtrado/suprimido.
+
+(*) PERO NUNCA MUTAN EL ARRAY ORIGINAL
+
+let saludar = paises.filter(unPais =>unPais != 'Brazil').map(unPais => 'Hola ${unPais}');
+
+(*) ARROW FUNCTION no funciona el THIS. El THIS en un arrow function es WINDOW.
+
+-----
+
+SPREAD OPERATOR (...) = copia un objeto de manera rápida (sin un for y push)
+
+let arrayOne = ["Ada", "Grace"];
+let arrayTwo = ["Lucas", "Maria"];
+
+arrayOne = [...arrayOne, ...arrayTwo]; //"Ada", "Grace", "Lucas", "Maria"
+
+let arrayTres = [...arrayOne, "Brenda"];
+
+-----
+
+DESTRUCTING = una forma sencilla de tomar datos de un array u objeto (lo que quieras sacar)
+
+let greatPersons = ["Ana", "Juan", "Lucas"];
+let [woman1, woman2] = greatPersons; //woman1 en la posicion 0 y woman2 en la posicion 1.
+console.log(woman1);
+console.log(woman2);
+
+en objetos:
+
+var objeto = {nombre: lucas, edad: 23, perro: pancho};
+let {edad, nombre} = objeto; //edad = 23 y nombre: lucas
