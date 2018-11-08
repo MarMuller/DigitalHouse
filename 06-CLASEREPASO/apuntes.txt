@@ -44,7 +44,6 @@ if ($_POST){
 
   }
 
-
 }
 
 ----
@@ -80,7 +79,7 @@ header('location:listado.php'); //redirige a otra pagina
 
 PEDIR DATOS A LA BASE DE DATOS:
 
-(query > fetchAll - no necesita fetchAll)
+(query -> fetchAll - no necesita fetchAll)
 
 con ya incluido el conex.php
 

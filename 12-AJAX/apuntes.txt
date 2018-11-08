@@ -1,0 +1,90 @@
+JSON ( lenguaje con con el que interactuo con los servidores)
+
+JSON -> objeto literal, y un string
+
+var ejemploJSON = '{algo1: "algo1", algo2: "algo2"}';
+// ó var ejemploJSON = '{"algo1": "algo1", "algo2": "algo2"}';
+
+convertir un objeto literal a un JSON:
+
+var algo = {marca: "purulo", nombre: "fulanito", comida: "carne"}
+JSON.stringify(algo);
+
+--------------------------
+
+AJAX
+
+Para llamar al AJAX en JavaScript (4 pasos):
+
+POR GET:
+
+var ajaxCall = new XMLHttpRequest();
+
+//A este objeto ajaxCall, hacer q haga:
+
+ajaxCall.onreadystatechange = function(){
+  if (ajaxCall.readyState === 4 && ajaxCall.status === 200) {
+    console.log(ajaxCall.response);
+    // do stuff with var ajaxCall.response
+  }
+}; //esto retorna un true o false
+
+ajaxCall.open(
+  "GET",
+  "http://jsonplaceholder.typicode.com/users",
+  true
+);
+
+ajaxCall.send();
+
+----
+
+POR POST:
+
+var ajaxCall = new XMLHttpRequest();
+
+//A este objeto ajaxCall, hacer q haga:
+
+ajaxCall.onreadystatechange = function(){
+  if (ajaxCall.readyState === 4 && ajaxCall.status === 200) {
+    console.log(ajaxCall.response);
+    // do stuff with var ajaxCall.response
+  }
+}; //esto retorna un true o false
+
+ajaxCall.open(
+  "POST",
+  "http://jsonplaceholder.typicode.com/users",
+  true
+);
+
+ajaxCall.setRwuestHeader("Content-type", "application/x-www-form-urlencoded");
+
+var data = "nombre=Aba&apellido=Lovelance&curso=FullStack";
+
+ajaxCall.send(data);
+
+---
+
+para accedera datos (ejemplo):
+
+JSON.parse(resp).data[1].vacantes;
+
+_________________________
+
+o sino hacemos un fetch:
+
+FETCH
+
+fetch ("http://jasonplaceholder.typicode.com/users")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    //do stuff with data
+  })
+  .catch(function (error) {
+    console.log("The error was: "+error);
+  })
+
+dfdsfdsf
