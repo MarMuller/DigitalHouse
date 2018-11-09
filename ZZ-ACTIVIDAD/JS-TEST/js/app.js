@@ -3,22 +3,58 @@
 // contenedor.appendChild(text);
 
 var contenedor = document.querySelector('.contenedor');
+var colorPicker = document.querySelector('.colorPicker');
+var choosenColor;
+var arrayColorPickers = [];
 var divs = [];
+
+function tomarColor(x) {
+  var color = x.style.backgroundColor;
+  x.setAttribute("class", "choosen");
+  // x.class = "choosen";
+  //
+  // for (picker of arrayColorPickers) {
+  //   if (picker.class != "choosen") {
+  //     picker.class = "notChoosen";
+  //     picker.style.border = "1px solid black";
+  //   }
+  // }
+  //
+  // x.style.border = "2px solid white";
+  choosenColor = color;
+  //console.log(x);
+  console.log(color);
+  //console.log(arrayColorPickers);
+}
+
+function cambiarColor(x) {
+  x.style.backgroundColor = choosenColor;
+  //console.log(x);
+}
+
+//colorPicker
+var colores = ["red","purple","blue","green","yellow","black","gray","white"];
+for (color of colores) {
+  var picker = document.createElement('div');
+  picker.setAttribute("style", 'background-color:'+color+'; width:25px; height:25px; border: 1px solid black; cursor:pointer; display:inline-block;');
+  picker.setAttribute("onclick", "tomarColor(this)");
+  //picker.setAttribute("class", "notChoosen");
+  colorPicker.appendChild(picker);
+  //arrayColorPickers.push(picker);
+}
 
 function agregarDiv() {
 
-  var enlace = document.createElement('a');
   var cuadro = document.createElement('div');
-  cuadro.classList.add("texto");
-  enlace.appendChild(cuadro);
+  cuadro.setAttribute("style", "background-color:white; width:100px; height:100px; border: 1px solid black; border-radius: 50px; cursor:pointer; display:inline-block;");
+  cuadro.setAttribute("onclick", "cambiarColor(this)");
 
-  divs.push(enlace);
-  //contenedor.innerHTML = divs;
+  divs.push(cuadro);
+  contenedor.appendChild(cuadro);
 
-  for (item of divs) {
-    console.log(item);
-    contenedor.appendChild(item);
-  }
+  // for (item of divs) {
+  //   console.log(item);
+  // }
 
   console.log('added');
 }
@@ -28,24 +64,9 @@ function borrarDiv() {
   contenedor.innerHTML = "";
 
   for (item of divs) {
-    console.log(item);
+    //console.log(item);
     contenedor.appendChild(item);
   }
 
   console.log('deleted');
 }
-
-
-  // var contenedor = document.querySelector('.contenedor');
-  // if (contenedor != null) {
-  //   var contenedor = document.createElement('div');
-  //   document.body.appendChild(contenedor);
-  // }
-  // var clear = document.querySelector('div');
-  // if (clear != null) {
-  //   clear.remove();
-  //   console.log('clear');
-  // }
-
-
-//console.log('LISTO!');
