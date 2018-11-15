@@ -60,7 +60,7 @@ prepare: evitar una inyección de sql
 
 bindValue ( :nombreqlepuse , valor)
 
-si el valorviene por post, sería así:
+si el valor viene por post, sería así:
 
 $query->bindValue ( :nombreqlepuse , $_POST['talle']);
 $query->bindValue ( :nombreqlepuse , $_POST['color']);
