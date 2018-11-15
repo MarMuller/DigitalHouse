@@ -1,0 +1,12 @@
+Framework: nos provee un entorno de desarrollo con el cual podemos resolver problemas comunes más rápidamente.
+
+No permite organizar un código y nos brinda un sist de archivos.
+
+No permite desarrollar más seguido y escribir menos código.
+
+----
+
+Biblioteca: un pedazo de código que nos permite hacer algo.
+
+http://getcomposer.org
+(gestor de dependencias para proyectos progrmados en php)
