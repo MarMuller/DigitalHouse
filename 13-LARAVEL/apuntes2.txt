@@ -1,0 +1,16 @@
+DESCARGAR  LAVAVEL POR CONSOLA:
+$ composer create-project laravel/laravel nombre_proyecto
+
+INICIAR LARAVEL:
+$ php artisan serve
+
+VER PAGINA QUE ESTAMOS CREANDO EN LARAVEL:
+localhost:8000
+
+(*)LO MODELOS SE CREAN EN /APP.
+
+(*) dd() --> var_dump() para Laravel.
+
+ORDEN:
+1) Primero hacemos las rutas (la ruta mas especifica arriba y la mas general abajo).
+2) Luego creamos la vista en Blade -> en Views / (carpeta x) / nombrearchivo.blade.php .
