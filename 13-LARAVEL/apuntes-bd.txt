@@ -1,0 +1,150 @@
+Tenemos nuestra BD creada en MySQL y necesitamos trabajen otra compu.
+
+Laravel frece una solución: "Migraciones"
+
+-Primero debemos definir las migraciones de cada dato.
+
+¿Cómo creamos una migración?
+Desde la consola de comandos, ejecutamos el siguiente código:
+
+php artisan make:migration nombre_de_migration
+
+se creará en:
+database/migrations/2018_11_29_193012_nombre_de_migration.php
+
+(*)Una clase va a tener una función publica  UP y una DOWN.
+La primera para avanzar en los cambios a la base de datos, y el segundo para volver una paso para atrás.
+
+En > database/migrations/2017_07_03_180000_create_flights_table.php :
+
+class CreateFlightsTable extends Migration {
+  public function up() {
+    Schema::create('flights', function (Blueprint $table) { //Schema:: <-- Clase con método estático //Blueprint: plano recibe una tabla
+      $table->increments('id'); //campo incrementeble id
+      $table->string('name');
+      $table->string('airline');
+      $table->timestamps(); //Siempre lo vamos a agregar en todas al tablas (created_at / update_at)
+  });
+}
+public function down() {
+  Schema::drop('flights');
+  }
+}
+
+Necesito crear una tabla vuelos que va a tener un id, un nombre y una airline.
+
+----------------------------------------------
+
+Situación de ejemplo de Ejemplo:
+
+A =
+usuarios: id - name - email
+
+A2 =
+usuarios: id - name - correo - cumple //eliminó un campo y agregó dos.
+
+----------------------------------------------
+
+$table->timestamp('email_verified_at')->nullable(); //verificacion de email para crear cuenta
+
+$table->rememberToken(); //te manda uan email con codigo para poder cambiar la contraseña.
+
+
+php artisan migrate //migra las migraciones previas
+
+php artisan migrate:rollback //va a deshacer, ejecuta el DOWN.
+
+----------------------------------------------
+
+EJEMPLO 2:
+
+movies =
+id
+title
+genre_id
+lenght
+release_date
+
+genre =
+id
+name
+
+------------
+
+php artisan make:migration crearTablas
+
+------------
+
+class crearTablas extends Migration {
+
+  public function up() {
+
+    Schema::create('genres', function (Blueprint $table) {
+      $table->increments('id');
+      $table->string('name', 180)->unique();
+      $table->timestamps();
+    });
+
+    Schema::create('movies', function (Blueprint $table) {
+      $table->increments('id');
+      $table->string('name', 180);
+      $table->integer('genre_id')->nullable();
+      $table->integer('duracion')->nullable();
+      $table->timestamp('release_date');    //va en singular este
+      $table->timestamps();                 //va en plural este
+    });
+  }
+  public function down() {
+    Schema::drop('movies'); //se borra este primero porque sino salta error porque genres depende de movies.
+    Schema::drop('genres');
+  }
+}
+
+------------
+
+php artisan migrate:status //para si queremos revisar
+
+php artisan migrate //va a migrar la única q no esta migrada
+
+php artisan migrate:rollback //por si queremos ir
+
+un paso atrás
+
+
+----------------------------------------------
+
+
+Para modificar datos de tabla:
+
+-Vamos a hacer una nueva migración:
+php artisan make:migration modificarMovies
+
+------------
+
+//ver guia: laravel.com/docs/5.7/migrations (ver pre-requisitos e instalar complemento)
+
+class modificarMovies extends Migration {
+
+  public function up() {
+
+    Schema::table('movies', function (Blueprint $table)) {
+      $table->renameColumn('duracion', 'lenght');  //primero el nombre del campo q vamos a modificar y dsp el nuevo nombre.
+      $table->decimal('rating', 3, 1);  //defino que serán '3' numeros y '1' de ellos es decimal.
+    });
+
+  }
+  public function down() {
+
+    Schema::table('movies', function (Blueprint $table)) {
+      $table->renameColumn('lenght', 'duracion'); //lo mismo paro a la inversa.
+      $table->dropColumn('rating');
+    });
+
+  }
+}
+
+------------
+
+php artisan migrate //va a migrarla
+
+----------------------------------------------
