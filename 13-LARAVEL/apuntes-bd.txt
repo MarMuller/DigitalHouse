@@ -147,4 +147,67 @@ class modificarMovies extends Migration {
 
 php artisan migrate //va a migrarla
 
+
 ----------------------------------------------
+
+
+Para crear llave foranea:
+
+Schema::table('post', function (Blueprint $table)) {
+  $table->unsignedInteger('user_id');
+  $table->foreign('user_id')->references('id')->on('users');
+});
+
+
+-----------------------------------------------
+
+Parte 2 de clase:
+
+Comó creamos una factory?
+
+php artisan make:factory nombre_de_factory
+
+se crea en:
+database/factories/nombre_de_factory
+
+--------------------
+
+use Faker\Generator as Faker; //Nos ayuda a generar datos falsos
+
+$factory->define(App\Product::class, function ($faker) {
+  return [
+    'title' => $faker->word,
+    'price' => $faker->numberBetween(1, 900),
+    'description' => $faker->paragraph(10)
+  ];
+});
+
+
+// Luego, para usarlo?
+
+Usamos los alimentadores(seeders), que utilizan tambien a la fabricas.
+
+$product = factory(App\Product::class)->make();
+$product->save();
+
+factory(App\Product::class)->create();
+factory(App\Product::class)->times(50)->create();
+
+ejemplo:
+
+public function sarasa() {
+  factory(Product::class)->times(30)->create();
+
+  $actors = factory(Actor::class)->times(20)->create();
+  $movies = factory(Movie::class)->times(20)->create();
+
+  foreach ($movies as $movie) {
+    // Asocio la película con 3 actores al azar
+    $movie->actors()->saveMany($actors->random(3));
+  }
+}
+
+php artisan db:seed //para ejecutarlo
+php artisan db:seed --class=nombre_seed
+
+//MIRAR PRESENTACIÓN PARA MAS EJEMPLOS
