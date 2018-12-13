@@ -1,0 +1,37 @@
+Eloquent:
+
+Metodo estático, Create:
+
+$usuario = User::create(['nombre'=> 'Francisco']);
+
+Para poder utilizar este método debemos recordar colocar el atributo que en este caso es "nombre" como $fillable dentro del modelo.
+o $guarded (que se yo)
+
+Método Save:
+Inserta un registro nuevo o actualiza.
+
+//Instanciamos un objeto Usuario vacío
+$usuario = new Usuario();
+
+//ó podemos enviarle un array asociativo similar al método Create
+$usuario = new Usuario([
+  'name' => $request->input('name');
+  'email' => $request->input('email');
+]);
+
+
+------------------------
+
+BARRA PARA DEBUGUEAR:
+https://github.com/barryvdh/laravel-debugbar
+
+
+
+
+------------------------
+
+Route::get('/comics')->group( function () {
+    Route::get('create', 'ComicController@create');
+    Route::get('edit', 'ComicController@edit');
+    Route::get('delete', 'ComicController@delete');
+});
