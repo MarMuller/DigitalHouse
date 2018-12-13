@@ -1,0 +1,151 @@
+VALIDACIONES EN LARAVEL:
+1) Necesitamos primero un formulario, que debe tener:
+debe enviar los datos por POST, que vaya a /guardar (ruta) y que use un controlador (controladorx@talfuncion)
+
+en el controlador:
+
+public function guardar(Request $request) {
+ // validador
+ $this->validate($request, [
+  'name' => 'requiered'
+ ]);
+
+  //Creo Modelo 'Category':
+
+  //Category::create()
+  //usa modelo catagoria y usa create()
+
+  Category::create([
+    'name' => $request -> input ('name')
+  ]);
+
+}
+
+------------------
+
+Clase de HOY: EMAIL LARAVEL
+LOGUEO CON FACEBOOK Y GOOGLE
+
+Laravel Socialite (paquete que hay q instalarlo con Composer)
+https://laravel.com/docs/5.7/socialite
+
+En consola:
+composer require laravel/socialite
+
+config/services.php --> pre configuración
+
+agregar uan array asociativo, que lo primero le voy a agregar con que voy a loguearme en facebook (?)
+
+'github' => [
+    'client_id' => env('GITHUB_CLIENT_ID'),         // Your GitHub Client ID
+    'client_secret' => env('GITHUB_CLIENT_SECRET'), // Your GitHub Client Secret
+    'redirect' => 'http://your-callback-url',
+],
+
+cuando le doy al boton de loguarme con google/facebook:
+
+//Envia peticion por get
+
+"Tal app desea log a Google maru@tuvieja.com"
+
+Le damos OK al boton y ...
+
+//y respuesta por get también
+
+por lo tanto son dos rutas, que se agregan al web.php:
+
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');
+
+En el LoginController:
+
+use Socialite;
+
+class LoginController extends Controller //dos funciones 1 para redirect y otro para el callback
+{
+    /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('github')->redirect();  //('facebook'),('google'),etc...
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        $user = Socialite::driver('github')->user();  //('facebook'),('google'),etc...
+
+        //guardo en base de datos
+        dd($user);
+
+        // $user->token;
+    }
+}
+
+Y manda una objeto de la clase Usuario
+
+En el archivo env, que vamoa acompletar con lo q haremos en console.developers.google.com
+
+GOOGLE_CLIENT:ID=  (ejemplo:1093573710020)
+GOOGLE_CLIENT_SECRET= client secret en el archivo descargado (*)
+
+console.developers.google.com
+
+crear proyecto -> ... -> Google+ API -> habilitar -> crear credenciales -> google api , servidor web , dato usuario ->
+
+siguiente pag:
+
+nomrbe de API
+
+URI redireccion a --> http://localhost:8000/login/google/callback
+
+copiar el Client ID en Envia
+ejemplo:1093573710020-v3r2jbprkvee1gpir94sm5f2dh4b5jjh.apps.googleusercontent.com
+descargarlo y ... (*)
+
+LOS BOTON EN EL FORMULARIO PARALOGUEARSE:
+
+deben tener como href = login/google
+
+---------
+
+VALIDACIONES EN JAVASCRIPT:
+1) creamos una js en public
+2) linkeo con blade de login (<script src="/js/..."></script>)
+3) creamos variable en js para tomar el form con querySelector.
+
+windows.addEventListener('load', function() {
+  var formu = document.querySelector('#fomulario');
+
+  formu.onsubmit = function(event) {
+
+    var inputEmail = document.querySelector('input[name="email"]');
+    if(inputEmail.value='') {
+      inputEmail.classList.add('is-invalid');
+      event.preventDefault();
+    }
+    //alert('validar datos');
+  }
+});
+
+-------
+
+RESTABLECER CONTRASEÑA:
+
+https://laravel.com/docs/5.7/mail#customizing-the-components
+
+.env --- > MAIL_HOST=smtp.mailtrap.io  //mailtrap captura el email antes de enviarlo
+
+hay q registrarse en MailTrap (mailtrap.io)
+
+MAIL_USERNAME= "saco datos de mi usuario de la pagina"
+MAIL_PASS= "saco datos de mi usuario de la pagina"
+
+APP_URL= http://localhost:8000 (mi dominio) -> agregarle :8000
